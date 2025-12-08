@@ -1,5 +1,4 @@
 import { Icons } from "@/components/icons";
-import { truncate } from "fs";
 import {
   BriefcaseBusiness,
   CodeIcon,
@@ -10,6 +9,22 @@ import {
   NotebookIcon,
   PencilLine,
 } from "lucide-react";
+import { 
+  SiJavascript, 
+  SiReact, 
+  SiNextdotjs, 
+  SiNodedotjs, 
+  SiExpress, 
+  SiPhp, 
+  SiTailwindcss, 
+  SiPython, 
+  SiFlask, 
+  SiMysql, 
+  SiMongodb, 
+  SiGit, 
+  SiNpm, 
+  SiPostman 
+} from "react-icons/si";
 
 export const DATA = {
   name: "Azharangga Kusuma",
@@ -23,21 +38,21 @@ export const DATA = {
     "I'm a Software Developer passionate about creating user-centric solutions. With a background in [Computer Science from STMIK IKMI Cirebon](/#education), I've honed my skills through [internships and open-source contributions](/#experience), earning recognition for my work on [GitHub](https://github.com/azharanggakusuma). Outside of coding, I enjoy helping others in the tech community, sharing knowledge, and collaborating on projects.",
   avatarUrl: "/profile-circle.png",
   skills: [
-    "JavaScript",
-    "React.js",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    "PHP",
-    "React Native",
-    "TailwindCSS",
-    "Python",
-    "Flask",
-    "MySQL",
-    "MongoDB",
-    "Git",
-    "NPM",
-    "Postman",
+    { name: "JavaScript", icon: SiJavascript },
+    { name: "React.js", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
+    { name: "Node.js", icon: SiNodedotjs },
+    { name: "Express.js", icon: SiExpress },
+    { name: "PHP", icon: SiPhp },
+    { name: "React Native", icon: SiReact },
+    { name: "TailwindCSS", icon: SiTailwindcss },
+    { name: "Python", icon: SiPython },
+    { name: "Flask", icon: SiFlask },
+    { name: "MySQL", icon: SiMysql },
+    { name: "MongoDB", icon: SiMongodb },
+    { name: "Git", icon: SiGit },
+    { name: "NPM", icon: SiNpm },
+    { name: "Postman", icon: SiPostman },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -131,7 +146,7 @@ export const DATA = {
       start: "Nov 2022",
       end: "Dec 2022",
       description:
-        "* Developed interactive and responsive user interfaces using JavaScript frameworks such as Vue.js, React.js, and Node.js for dynamic frontend functionality. \n* Managed development workflows using Git version control, ensuring smooth collaboration and structured code review processes. \n* Enhanced UI design and consistency by implementing Bootstrap and Tailwind CSS to create modern and optimized layouts. \n* Learned and applied CI/CD practices using tools like Docker, improving development speed and deployment reliability. \n*  Integrated various external APIs into web applications to support dynamic content and real-time data rendering. \n* Performed unit testing with Jest to validate functionality, maintain code quality, and detect issues early in the development cycle.",
+        "* Developed interactive and responsive user interfaces using JavaScript frameworks such as Vue.js, React.js, and Node.js for dynamic frontend functionality. \n* Managed development workflows using Git version control, ensuring smooth collaboration and structured code review processes. \n* Enhanced UI design and consistency by implementing Bootstrap and Tailwind CSS to create modern and optimized layouts. \n* Learned and applied CI/CD practices using tools like Docker, improving development speed and deployment reliability. \n* Integrated various external APIs into web applications to support dynamic content and real-time data rendering. \n* Performed unit testing with Jest to validate functionality, maintain code quality, and detect issues early in the development cycle.",
       },
     {
       company: "PT Bonet Utama",

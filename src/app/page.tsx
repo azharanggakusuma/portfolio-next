@@ -18,7 +18,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { UrlObject } from "url";
 
-const BLUR_FADE_DELAY = 0.01;
+const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux">("all");
@@ -71,9 +71,10 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY + id * 0.02}>
-                <Badge key={skill} className="">
-                  {skill}
+              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY + id * 0.05}>
+                <Badge key={skill.name} className="flex gap-2 px-2 py-1 text-[10px]">
+                  <skill.icon className="h-4 w-4" />
+                  {skill.name}
                 </Badge>
               </BlurFade>
             ))}
