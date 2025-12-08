@@ -22,7 +22,7 @@ You can view the live site [here](https://ssahibsingh.github.io/)
 Fork the repository. then clone the repo locally by doing -
 
 ```bash
-git clone https://github.com/ssahibsingh/ssahibsingh.github.io.git
+git clone https://github.com/azharanggakusuma/portfolio-next.git
 ```
 
 ### Step 2: Install Dependencies
@@ -30,7 +30,7 @@ git clone https://github.com/ssahibsingh/ssahibsingh.github.io.git
 cd into the directory
 
 ```bash
-cd ssahibsingh.github.io
+cd portfolio-next
 ```
 
 install all the dependencies
@@ -48,4 +48,4 @@ After running the development server the site should be running on https://local
 
 ## 🗨️ Feedback
 
-If you have any feedback, please reach out to me [here](https://ssahibsingh.github.io/#contact)
+If you have any feedback, please reach out to me [here](https://t.me/azharanggakusuma)
