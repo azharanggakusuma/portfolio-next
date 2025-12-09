@@ -167,13 +167,12 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent
+      <DialogContent 
         onOpenAutoFocus={(e) => e.preventDefault()}
         className={cn(
           "bg-black/95 backdrop-blur-xl p-0 overflow-hidden text-white [&>button]:hidden shadow-2xl transition-all duration-300 ease-in-out gap-0",
-          "w-screen h-[100dvh] max-w-none m-0 rounded-none border-none",
-          !isFullscreen &&
-            "sm:max-w-5xl sm:h-auto sm:rounded-xl sm:border sm:border-white/10 sm:my-auto"
+          "w-screen h-[100dvh] max-w-none m-0 rounded-none border-none", 
+          !isFullscreen && "sm:max-w-6xl sm:h-auto sm:rounded-xl sm:border sm:border-white/10 sm:my-auto"
         )}
       >
         {/* Header */}
