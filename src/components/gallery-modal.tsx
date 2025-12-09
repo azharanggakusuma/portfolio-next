@@ -82,7 +82,13 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, api]);
 
+  // Cek status Loading & Error gambar saat ini
+  const isCurrentLoading = loadingStates[current];
+  const isCurrentError = errorStates[current];
+
   const handleCopyLink = () => {
+    if (isCurrentError || isCurrentLoading) return;
+
     const currentImage = items[current].image;
     const fullUrl = currentImage.startsWith("http") 
       ? currentImage 
@@ -95,6 +101,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
   };
 
   const handleDownload = async () => {
+    if (isCurrentError || isCurrentLoading) return;
+
     const imageUrl = items[current].image;
     try {
       const response = await fetch(imageUrl);
@@ -167,29 +175,42 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
           
           <div className="flex items-center gap-1 pointer-events-auto">
             
-            {/* 1. Download (Muncul di Mobile & Desktop) */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
-              onClick={handleDownload}
-              title="Download Image"
-            >
-              <Download className="h-4 w-4" />
-            </Button>
+            {/* GROUP: Action Buttons (Download & Copy) */}
+            {/* ANIMASI DIUBAH DI SINI:
+                - isCurrentLoading ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0"
+                - Jika loading: Geser ke kanan (translate-x-8) dan hidden.
+                - Jika selesai: Geser ke kiri (posisi 0) dan muncul.
+            */}
+            <div className={cn(
+              "flex items-center gap-1 transition-all duration-500 ease-out",
+              isCurrentLoading ? "opacity-0 translate-x-8 pointer-events-none" : "opacity-100 translate-x-0"
+            )}>
+                {/* 1. Download */}
+                <Button
+                variant="ghost"
+                size="icon"
+                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9 disabled:opacity-30 disabled:cursor-not-allowed"
+                onClick={handleDownload}
+                disabled={isCurrentError}
+                title="Download Image"
+                >
+                <Download className="h-4 w-4" />
+                </Button>
 
-            {/* 2. Copy Link (Muncul di Mobile & Desktop) */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
-              onClick={handleCopyLink}
-              title="Copy Image Link"
-            >
-              {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
-            </Button>
+                {/* 2. Copy Link */}
+                <Button
+                variant="ghost"
+                size="icon"
+                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9 disabled:opacity-30 disabled:cursor-not-allowed"
+                onClick={handleCopyLink}
+                disabled={isCurrentError}
+                title="Copy Image Link"
+                >
+                {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
+                </Button>
+            </div>
 
-            {/* 3. Fullscreen Toggle (HANYA MUNCUL DI DESKTOP/TABLET 'hidden sm:flex') */}
+            {/* 3. Fullscreen Toggle */}
             <Button
               variant="ghost"
               size="icon"
@@ -200,11 +221,16 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
               {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
             </Button>
 
-            {/* SEPARATOR (Sekarang MUNCUL DI SEMUA PERANGKAT) */}
-            {/* Menghapus class 'hidden sm:block' agar tampil di mobile juga */}
-            <div className="w-px h-6 bg-white/10 mx-1"></div>
+            {/* Separator (Desktop) */}
+            <div className="hidden sm:block w-px h-6 bg-white/10 mx-1"></div>
+            {/* Separator (Mobile) - Ikut animasi horizontal */}
+            <div className={cn(
+                "sm:hidden w-px h-6 bg-white/10 mx-1 transition-all duration-500 ease-out",
+                isCurrentLoading ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0"
+            )}></div>
 
-            {/* 4. Close (Muncul di Mobile & Desktop) */}
+
+            {/* 4. Close */}
             <Button
               variant="ghost"
               size="icon"
