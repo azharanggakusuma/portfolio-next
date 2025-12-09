@@ -35,7 +35,7 @@ export const DATA = {
   description:
     "Software Developer, specializing in Web and Mobile. Passionate about building impactful solutions. Always exploring new technologies.",
   summary:
-    "I'm a Software Developer passionate about creating user-centric solutions. With a background in [Computer Science from STMIK IKMI Cirebon](/#education), I've honed my skills through [internships and open-source contributions](/#experience), earning recognition for my work on [GitHub](https://github.com/azharanggakusuma). Outside of coding, I enjoy helping others in the tech community, sharing knowledge, and collaborating on projects.",
+    "I’m a Software Developer with a strong interest in building practical, user-focused software solutions. With a background in [Computer Science from STMIK IKMI Cirebon](/#education), I’ve developed my skills through hands-on [internship experience and personal/open-source projects](/#experience). Outside of development, I enjoy contributing to the tech community by sharing knowledge and helping others grow.",
   avatarUrl: "/profile-circle.png",
   skills: [
     { name: "JavaScript", icon: SiJavascript },
@@ -56,9 +56,9 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "#projects", icon: CodeIcon, label: "Projects" },
     { href: "#experience", icon: BriefcaseBusiness, label: "Experience" },
     { href: "#education", icon: GraduationCap, label: "Education" },
+    { href: "#projects", icon: CodeIcon, label: "Projects" },
     { href: "#contact", icon: GlobeIcon, label: "Contact" },
   ],
   contact: {
