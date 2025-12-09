@@ -2,11 +2,11 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { FileText } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
-// IMPORT KOMPONEN BARU
 import { GalleryModal } from "./gallery-modal";
 import { GalleryItem } from "@/data/resume";
 
@@ -21,7 +21,7 @@ interface AcademicCardProps {
   description?: string;
   certificateUrl?: string;
   location?: string;
-  gallery?: readonly GalleryItem[]; // Tambahkan ini
+  gallery?: readonly GalleryItem[];
 }
 
 export const AcademicCard = ({
@@ -35,7 +35,7 @@ export const AcademicCard = ({
   description,
   certificateUrl,
   location,
-  gallery, // Ambil props ini
+  gallery,
 }: AcademicCardProps) => {
   return (
     <div className="flex bg-transparent">
@@ -74,23 +74,20 @@ export const AcademicCard = ({
             </Markdown>
           )}
 
-          {/* Wrapper Tombol */}
           <div className="flex flex-wrap gap-2 mt-1">
-            {/* Tombol Certificate */}
             {certificateUrl && (
-              <div className="mt-3">
-                <Link
-                  href={certificateUrl}
-                  target="_blank"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-medium bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors border border-border/50 shadow-sm h-7"
+              <Link href={certificateUrl} target="_blank">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-3 gap-1.5 text-[10px] h-7 font-medium"
                 >
                   <FileText className="h-3 w-3" />
                   Certificate
-                </Link>
-              </div>
+                </Button>
+              </Link>
             )}
 
-            {/* Tombol Gallery (Hanya muncul jika ada data) */}
             {gallery && gallery.length > 0 && (
               <GalleryModal title={title} items={gallery} />
             )}
