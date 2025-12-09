@@ -84,7 +84,7 @@ export const DATA = {
         contact: true,
         navbar: true,
       },
-      X: {
+      Instagram: { 
         name: "Instagram",
         url: "https://instagram.com/azharangga_kusuma",
         icon: Icons.instagram,
