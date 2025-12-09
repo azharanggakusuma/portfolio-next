@@ -159,6 +159,7 @@ export default function Page() {
                 location={item.location}
                 description={item.description}
                 certificateUrl={item.certificateUrl}
+                gallery={item.gallery}
               />
             </BlurFade>
           ))}

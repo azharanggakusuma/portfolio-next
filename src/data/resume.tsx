@@ -26,6 +26,12 @@ import {
   SiPostman 
 } from "react-icons/si";
 
+export interface GalleryItem {
+  image: string;
+  caption: string;
+  location?: string;
+}
+
 export const DATA = {
   name: "Azharangga Kusuma",
   initials: "AK",
@@ -208,6 +214,13 @@ export const DATA = {
       description:
         "Presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the 9th National Seminar on Information Systems and Technology (SISFOTEK), organized by the Indonesian Informatics Experts Association (IAII). The study evaluated the performance of lightweight deep learning models for early disease detection.",
       certificateUrl: "https://example.com/certificate-sisfotek",
+      gallery: [
+        {
+          image: "/gallery/sisfotek-1.jpg",
+          caption: "Sesi presentasi jurnal penelitian.",
+          location: "Ruang Seminar Utama",
+        },
+      ],
     },
     {
       school: "Universitas Pendidikan Ganesha",
@@ -221,6 +234,18 @@ export const DATA = {
       description:
         "Participated in the Merdeka Student Exchange Program (PMM) Batch 4, where I explored Balinese culture firsthand and engaged in cross-disciplinary courses that broadened my academic perspective beyond my primary field of study. This experience strengthened my adaptability, cultural awareness, and ability to learn in diverse academic environments.",
       certificateUrl: "https://google.com",
+      gallery: [
+        {
+          image: "/gallery/pmm-1.jpg",
+          caption: "Presentasi budaya lokal Cirebon.",
+          location: "Aula Kampus Undiksha",
+        },
+        {
+          image: "/gallery/pmm-2.jpg",
+          caption: "Kunjungan budaya ke Desa Penglipuran.",
+          location: "Bangli, Bali",
+        },
+      ],
     },
   ],
   projects: [
