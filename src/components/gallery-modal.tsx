@@ -211,7 +211,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                       side="bottom"
                       className="bg-black text-white border-white/20 text-xs z-[9999]"
                     >
-                      <p>Download Image</p>
+                      <p>Download</p>
                     </TooltipContent>
                   </TooltipPortal>
                 </Tooltip>
@@ -301,7 +301,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                     side="bottom"
                     className="bg-black text-white border-white/20 text-xs z-[9999]"
                   >
-                    <p>Close Gallery</p>
+                    <p>Close</p>
                   </TooltipContent>
                 </TooltipPortal>
               </Tooltip>

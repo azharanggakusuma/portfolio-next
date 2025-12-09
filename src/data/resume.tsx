@@ -213,7 +213,7 @@ export const DATA = {
       location: "Batam, Riau Islands, Indonesia",
       description:
         "Presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the 9th National Seminar on Information Systems and Technology (SISFOTEK), organized by the Indonesian Informatics Experts Association (IAII). The study evaluated the performance of lightweight deep learning models for early disease detection.",
-      certificateUrl: "https://example.com/certificate-sisfotek",
+      certificateUrl: "/gallery/pmm-1.jpg",
       gallery: [
         {
           image: "/gallery/sisfotek-1.jpg",

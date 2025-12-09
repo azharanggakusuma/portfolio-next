@@ -15,41 +15,36 @@ import {
   TooltipPortal,
 } from "@/components/ui/tooltip";
 import Image from "next/image";
-import {
-  FileText,
-  X,
-  Loader2,
-  ImageOff,
-  Maximize2,
-  Minimize2,
-  Download,
-  Link as LinkIcon,
+import { 
+  FileText, 
+  X, 
+  Loader2, 
+  ImageOff, 
+  Maximize2, 
+  Minimize2, 
+  Download, 
+  Link as LinkIcon, 
   Check,
-  FileIcon,
+  FileIcon 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface CertificateModalProps {
-  href: string;
-  alt: string;
+  href: string;      
+  alt: string;       
   trigger?: React.ReactNode;
 }
 
 // Helper untuk mengekstrak ID dari URL Google Drive
 function getGoogleDriveId(url: string) {
-  const regex =
-    /(?:drive\.google\.com\/(?:file\/d\/|open\?id=)|docs\.google\.com\/file\/d\/)([-0-9a-zA-Z]+)/;
+  const regex = /(?:drive\.google\.com\/(?:file\/d\/|open\?id=)|docs\.google\.com\/file\/d\/)([-0-9a-zA-Z]+)/;
   const match = url.match(regex);
   return match ? match[1] : null;
 }
 
-export function CertificateModal({
-  href,
-  alt,
-  trigger,
-}: CertificateModalProps) {
+export function CertificateModal({ href, alt, trigger }: CertificateModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -58,11 +53,11 @@ export function CertificateModal({
 
   const driveId = getGoogleDriveId(href);
   const isPdf = href.toLowerCase().endsWith(".pdf");
-  const contentType = driveId ? "drive" : isPdf ? "pdf" : "image";
+  const contentType = driveId ? 'drive' : (isPdf ? 'pdf' : 'image');
 
   const handleCopyLink = () => {
-    const fullUrl = href.startsWith("http")
-      ? href
+    const fullUrl = href.startsWith("http") 
+      ? href 
       : `${window.location.origin}${href}`;
 
     navigator.clipboard.writeText(fullUrl).then(() => {
@@ -73,10 +68,7 @@ export function CertificateModal({
 
   const handleDownload = async () => {
     if (driveId) {
-      window.open(
-        `https://drive.google.com/uc?export=download&id=${driveId}`,
-        "_blank"
-      );
+      window.open(`https://drive.google.com/uc?export=download&id=${driveId}`, "_blank");
       return;
     }
 
@@ -89,9 +81,7 @@ export function CertificateModal({
       const link = document.createElement("a");
       link.href = url;
       const ext = isPdf ? "pdf" : "jpg";
-      link.download = `certificate-${alt
-        .replace(/\s+/g, "-")
-        .toLowerCase()}.${ext}`;
+      link.download = `certificate-${alt.replace(/\s+/g, "-").toLowerCase()}.${ext}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -103,17 +93,14 @@ export function CertificateModal({
   };
 
   return (
-    <Dialog
-      open={isOpen}
-      onOpenChange={(open) => {
-        setIsOpen(open);
-        if (open) {
-          setIsLoading(true);
-          setIsError(false);
-          setIsFullscreen(false);
-        }
-      }}
-    >
+    <Dialog open={isOpen} onOpenChange={(open) => {
+      setIsOpen(open);
+      if (open) {
+        setIsLoading(true);
+        setIsError(false);
+        setIsFullscreen(false);
+      }
+    }}>
       <DialogTrigger asChild>
         {trigger ? (
           trigger
@@ -128,77 +115,76 @@ export function CertificateModal({
           </Button>
         )}
       </DialogTrigger>
-
-      <DialogContent
+      
+      <DialogContent 
         onOpenAutoFocus={(e) => e.preventDefault()}
         className={cn(
           "bg-black/95 backdrop-blur-xl p-0 overflow-hidden text-white [&>button]:hidden shadow-2xl transition-all duration-300 ease-in-out gap-0",
-          "w-screen h-[100dvh] max-w-none m-0 rounded-none border-none",
-          !isFullscreen &&
-            "sm:max-w-5xl sm:h-[85vh] sm:rounded-xl sm:border sm:border-white/10 sm:my-auto"
+          "w-screen h-[100dvh] max-w-none m-0 rounded-none border-none", 
+          !isFullscreen && "sm:max-w-5xl sm:h-[60vh] md:h-[75vh] sm:rounded-xl sm:border sm:border-white/10 sm:my-auto"
         )}
       >
+        
         {/* Header Actions */}
         <DialogHeader className="absolute top-0 left-0 w-full z-50 p-4 bg-gradient-to-b from-black/80 to-transparent flex flex-row justify-between items-start pointer-events-none">
           <DialogTitle className="text-white text-base sm:text-lg font-semibold text-shadow-sm pt-2 pl-2 line-clamp-1 pointer-events-auto max-w-[60%] text-left">
             {alt}
           </DialogTitle>
-
+          
           <div className="flex items-center gap-1 pointer-events-auto">
             <TooltipProvider delayDuration={300}>
-              <div className="flex items-center gap-1">
-                {/* Download */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9 disabled:opacity-30 disabled:cursor-not-allowed"
-                      onClick={handleDownload}
-                      disabled={isError && !driveId}
-                    >
-                      <Download className="h-4 w-4" />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipPortal>
-                    <TooltipContent
-                      side="bottom"
-                      className="bg-black text-white border-white/20 text-xs z-[9999]"
-                    >
-                      <p>Download</p>
-                    </TooltipContent>
-                  </TooltipPortal>
-                </Tooltip>
+              
+              {/* GROUP: Action Buttons (Download & Copy) */}
+              {/* ANIMASI DITERAPKAN DI SINI:
+                  - Jika isLoading: opacity-0 translate-x-8 (Hilang & Geser Kanan)
+                  - Jika selesai: opacity-100 translate-x-0 (Muncul & Geser Kiri)
+              */}
+              <div className={cn(
+                "flex items-center gap-1 transition-all duration-500 ease-out",
+                isLoading ? "opacity-0 translate-x-8 pointer-events-none" : "opacity-100 translate-x-0"
+              )}>
+                  {/* Download */}
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9 disabled:opacity-30 disabled:cursor-not-allowed"
+                        onClick={handleDownload}
+                        disabled={isError && !driveId}
+                      >
+                        <Download className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipPortal>
+                        <TooltipContent side="bottom" className="bg-black text-white border-white/20 text-xs z-[9999]">
+                        <p>Download</p>
+                        </TooltipContent>
+                    </TooltipPortal>
+                  </Tooltip>
 
-                {/* Copy Link */}
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9 disabled:opacity-30 disabled:cursor-not-allowed"
-                      onClick={handleCopyLink}
-                      disabled={isError && !driveId}
-                    >
-                      {copied ? (
-                        <Check className="h-4 w-4 text-green-400" />
-                      ) : (
-                        <LinkIcon className="h-4 w-4" />
-                      )}
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipPortal>
-                    <TooltipContent
-                      side="bottom"
-                      className="bg-black text-white border-white/20 text-xs z-[9999]"
-                    >
-                      <p>{copied ? "Copied!" : "Copy Link"}</p>
-                    </TooltipContent>
-                  </TooltipPortal>
-                </Tooltip>
+                  {/* Copy Link */}
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9 disabled:opacity-30 disabled:cursor-not-allowed"
+                        onClick={handleCopyLink}
+                        disabled={isError && !driveId}
+                      >
+                        {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipPortal>
+                        <TooltipContent side="bottom" className="bg-black text-white border-white/20 text-xs z-[9999]">
+                        <p>{copied ? "Copied!" : "Copy Link"}</p>
+                        </TooltipContent>
+                    </TooltipPortal>
+                  </Tooltip>
               </div>
 
-              {/* Fullscreen Toggle */}
+              {/* Fullscreen Toggle (Selalu muncul) */}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
@@ -207,28 +193,26 @@ export function CertificateModal({
                     className="hidden sm:flex text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
                     onClick={() => setIsFullscreen(!isFullscreen)}
                   >
-                    {isFullscreen ? (
-                      <Minimize2 className="h-4 w-4" />
-                    ) : (
-                      <Maximize2 className="h-4 w-4" />
-                    )}
+                    {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
                   </Button>
                 </TooltipTrigger>
                 <TooltipPortal>
-                  <TooltipContent
-                    side="bottom"
-                    className="bg-black text-white border-white/20 text-xs z-[9999]"
-                  >
-                    <p>
-                      {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-                    </p>
-                  </TooltipContent>
+                    <TooltipContent side="bottom" className="bg-black text-white border-white/20 text-xs z-[9999]">
+                    <p>{isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}</p>
+                    </TooltipContent>
                 </TooltipPortal>
               </Tooltip>
 
+              {/* Separator Desktop */}
               <div className="hidden sm:block w-px h-6 bg-white/10 mx-1"></div>
+              
+              {/* Separator Mobile (Ikut animasi muncul) */}
+              <div className={cn(
+                  "sm:hidden w-px h-6 bg-white/10 mx-1 transition-all duration-500 ease-out",
+                  isLoading ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0"
+              )}></div>
 
-              {/* Close */}
+              {/* Close (Selalu muncul) */}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
@@ -241,123 +225,96 @@ export function CertificateModal({
                   </Button>
                 </TooltipTrigger>
                 <TooltipPortal>
-                  <TooltipContent
-                    side="bottom"
-                    className="bg-black text-white border-white/20 text-xs z-[9999]"
-                  >
+                    <TooltipContent side="bottom" className="bg-black text-white border-white/20 text-xs z-[9999]">
                     <p>Close</p>
-                  </TooltipContent>
+                    </TooltipContent>
                 </TooltipPortal>
               </Tooltip>
+
             </TooltipProvider>
           </div>
         </DialogHeader>
-
+        
         {/* KONTEN UTAMA */}
         <div className="w-full h-full flex items-center justify-center bg-black relative">
+          
           {/* === CASE 1 & 2: PDF VIEWER (Drive & Local) === */}
-          {(contentType === "drive" || contentType === "pdf") && (
-            <div className="w-full h-full pt-16 pb-4 px-0 sm:px-8 bg-zinc-950 flex flex-col justify-center relative">
-              {/* 1. LOADING SPINNER UNTUK PDF/IFRAME */}
-              {isLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
-                  <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                  <p className="text-xs text-white/30 animate-pulse">
-                    Loading document...
-                  </p>
-                </div>
-              )}
+          {(contentType === 'drive' || contentType === 'pdf') && (
+             <div className="w-full h-full pt-[5.5rem] pb-6 px-4 sm:px-10 flex flex-col justify-center relative z-10">
+                
+                {/* Frame PDF */}
+                <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-900/50">
+                    
+                    {/* Loading Overlay (Spinner) */}
+                    {isLoading && (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-zinc-900/90 backdrop-blur-sm">
+                            <Loader2 className="h-10 w-10 animate-spin text-white/50" />
+                            <p className="text-xs text-white/50 animate-pulse mt-3 font-medium">Loading document...</p>
+                        </div>
+                    )}
 
-              {driveId ? (
-                <iframe
-                  src={`https://drive.google.com/file/d/${driveId}/preview`}
-                  className={cn(
-                    "w-full h-full rounded-lg border border-white/10 bg-zinc-900 transition-opacity duration-500",
-                    isLoading ? "opacity-0" : "opacity-100"
-                  )}
-                  title={alt}
-                  allow="autoplay"
-                  onLoad={() => setIsLoading(false)}
-                />
-              ) : (
-                <iframe
-                  src={href}
-                  className={cn(
-                    "w-full h-full rounded-lg border border-white/10 bg-white transition-opacity duration-500",
-                    isLoading ? "opacity-0" : "opacity-100"
-                  )}
-                  title={alt}
-                  onLoad={() => setIsLoading(false)}
-                >
-                  {/* Fallback */}
-                  <div className="flex flex-col items-center justify-center h-full text-white">
-                    <p>Browser cannot render PDF directly.</p>
-                    <Button
-                      onClick={handleDownload}
-                      variant="secondary"
-                      size="sm"
-                      className="mt-2"
-                    >
-                      Download PDF
-                    </Button>
-                  </div>
-                </iframe>
-              )}
-            </div>
+                    {driveId ? (
+                        <iframe 
+                        // Tambahkan parameter ?rm=minimal agar tampilan sedikit lebih bersih (jika didukung)
+                        src={`https://drive.google.com/file/d/${driveId}/preview?rm=minimal`} 
+                        className="w-full h-full"
+                        title={alt}
+                        allow="autoplay"
+                        onLoad={() => setIsLoading(false)} 
+                        />
+                    ) : (
+                        <iframe 
+                        src={`${href}#toolbar=0&navpanes=0&scrollbar=0`} 
+                        className="w-full h-full"
+                        title={alt}
+                        onLoad={() => setIsLoading(false)} 
+                        />
+                    )}
+                </div>
+             </div>
           )}
 
           {/* === CASE 3: IMAGE VIEWER === */}
-          {contentType === "image" && (
+          {contentType === 'image' && (
             <>
-              {/* 2. LOADING SPINNER UNTUK GAMBAR */}
               {isLoading && !isError && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
                   <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                  <p className="text-xs text-white/30 animate-pulse">
-                    Loading image...
-                  </p>
+                  <p className="text-xs text-white/30 animate-pulse">Loading image...</p>
                 </div>
               )}
 
               {isError && (
                 <div className="flex flex-col items-center justify-center text-center space-y-3 z-20">
-                  <div className="p-3 bg-white/5 rounded-full">
-                    <ImageOff className="h-8 w-8 text-white/40" />
-                  </div>
-                  <p className="text-sm font-medium text-white/80">
-                    Failed to load certificate
-                  </p>
+                    <div className="p-3 bg-white/5 rounded-full">
+                        <ImageOff className="h-8 w-8 text-white/40" />
+                    </div>
+                    <p className="text-sm font-medium text-white/80">Failed to load certificate</p>
                 </div>
               )}
-
+              
               {!isError && (
                 <>
-                  {/* Background Blur */}
                   <div className="absolute inset-0 z-0 overflow-hidden">
                     <Image
-                      src={href}
-                      alt=""
-                      fill
-                      className={cn(
-                        "object-cover blur-3xl scale-110 brightness-[0.3]",
-                        isLoading
-                          ? "opacity-0"
-                          : "opacity-100 transition-opacity duration-1000"
-                      )}
+                        src={href}
+                        alt=""
+                        fill
+                        className={cn(
+                          "object-cover blur-3xl scale-110 brightness-[0.3]", 
+                          isLoading ? "opacity-0" : "opacity-100 transition-opacity duration-1000"
+                        )}
                     />
                   </div>
 
-                  {/* Gambar Utama */}
                   <div className="relative w-full h-full z-10 p-4 sm:p-12 pt-20 sm:pt-20">
                     <Image
                       src={href}
                       alt={alt}
                       fill
                       className={cn(
-                        "object-contain drop-shadow-2xl transition-all duration-500 ease-in-out",
-                        isLoading
-                          ? "opacity-0 scale-95"
-                          : "opacity-100 scale-100"
+                        "object-contain drop-shadow-2xl transition-all duration-500 ease-in-out", 
+                        isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"
                       )}
                       onLoad={() => setIsLoading(false)}
                       onError={() => {
@@ -370,6 +327,7 @@ export function CertificateModal({
               )}
             </>
           )}
+
         </div>
       </DialogContent>
     </Dialog>
