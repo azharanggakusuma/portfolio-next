@@ -13,9 +13,21 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { MapPin, ImageIcon, X, Loader2, ImageOff, Maximize2, Minimize2 } from "lucide-react";
+import { 
+  MapPin, 
+  ImageIcon, 
+  X, 
+  Loader2, 
+  ImageOff, 
+  Maximize2, 
+  Minimize2, 
+  Download, 
+  Link as LinkIcon, 
+  Check 
+} from "lucide-react";
 import { GalleryItem } from "@/data/resume";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -29,6 +41,9 @@ interface GalleryModalProps {
 export function GalleryModal({ title, items }: GalleryModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   const [loadingStates, setLoadingStates] = useState<boolean[]>([]);
   const [errorStates, setErrorStates] = useState<boolean[]>([]);
@@ -38,8 +53,65 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
       setLoadingStates(new Array(items.length).fill(true));
       setErrorStates(new Array(items.length).fill(false));
       setIsFullscreen(false);
+      setCurrent(0);
+      setCopied(false);
     }
   }, [isOpen, items]);
+
+  useEffect(() => {
+    if (!api) return;
+    
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+      setCopied(false);
+    });
+  }, [api]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        api?.scrollNext();
+      } else if (e.key === "ArrowLeft") {
+        api?.scrollPrev();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, api]);
+
+  const handleCopyLink = () => {
+    const currentImage = items[current].image;
+    const fullUrl = currentImage.startsWith("http") 
+      ? currentImage 
+      : `${window.location.origin}${currentImage}`;
+
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const handleDownload = async () => {
+    const imageUrl = items[current].image;
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${title.replace(/\s+/g, "-").toLowerCase()}-${current + 1}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Failed to download", error);
+      window.open(imageUrl, "_blank");
+    }
+  };
 
   const handleImageLoad = (index: number) => {
     setLoadingStates((prev) => {
@@ -89,34 +161,66 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
         
         {/* Header */}
         <DialogHeader className="absolute top-0 left-0 w-full z-50 p-4 bg-gradient-to-b from-black/80 to-transparent flex flex-row justify-between items-start pointer-events-none">
-          <DialogTitle className="text-white text-base sm:text-lg font-semibold text-shadow-sm pt-1 pl-1 line-clamp-1 pointer-events-auto">
+          <DialogTitle className="text-white text-base sm:text-lg font-semibold text-shadow-sm pt-2 pl-2 line-clamp-1 pointer-events-auto">
             {title}
           </DialogTitle>
           
-          <div className="flex items-center gap-2 pointer-events-auto">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden sm:flex text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-            >
-              {isFullscreen ? <Minimize2 className="h-5 w-5" /> : <Maximize2 className="h-5 w-5" />}
-            </Button>
+          <div className="flex items-center gap-1 pointer-events-auto">
+            
+            {/* GROUP: TOOLS (Download, Copy, Fullscreen) */}
+            <div className="hidden sm:flex items-center gap-1 mr-2">
+              {/* 1. Download */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
+                onClick={handleDownload}
+                title="Download Image"
+              >
+                <Download className="h-4 w-4" />
+              </Button>
 
+              {/* 2. Copy Link */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
+                onClick={handleCopyLink}
+                title="Copy Image Link"
+              >
+                {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
+              </Button>
+
+              {/* 3. Fullscreen Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+              >
+                {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+              </Button>
+            </div>
+
+            {/* SEPARATOR: Garis tipis pemisah antara Tools dan Close (Optional, visual saja) */}
+            <div className="hidden sm:block w-px h-6 bg-white/10 mx-1"></div>
+
+            {/* GROUP: CLOSE */}
             <Button
               variant="ghost"
               size="icon"
               className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
               onClick={() => setIsOpen(false)}
+              title="Close Gallery"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
               <span className="sr-only">Close</span>
             </Button>
           </div>
         </DialogHeader>
         
-        <Carousel className="w-full relative h-full" opts={{ loop: true }}>
+        <Carousel setApi={setApi} className="w-full relative h-full" opts={{ loop: false }}>
           <CarouselContent className="h-full m-0">
             {items.map((item, index) => {
                const isLoading = loadingStates[index];
@@ -158,6 +262,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
 
                   {!isError && (
                     <>
+                      {/* Background Blur */}
                       <div className="absolute inset-0 z-0">
                         <Image
                             src={item.image}
@@ -170,6 +275,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                             priority={index === 0}
                         />
                       </div>
+
+                      {/* Gambar Utama */}
                       <div className="relative w-full h-full z-10 p-0 sm:p-4">
                         <Image
                           src={item.image}
@@ -209,8 +316,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
           
           {items.length > 1 && (
             <>
-              <CarouselPrevious className="hidden sm:flex left-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors" />
-              <CarouselNext className="hidden sm:flex right-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors" />
+              <CarouselPrevious className="hidden sm:flex left-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed" />
+              <CarouselNext className="hidden sm:flex right-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed" />
             </>
           )}
         </Carousel>
