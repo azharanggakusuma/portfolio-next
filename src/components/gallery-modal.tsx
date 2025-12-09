@@ -328,73 +328,61 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                         : "h-[100dvh] sm:h-[60vh] md:h-[75vh]"
                     )}
                   >
-                    {/* Loading Spinner */}
-                    {isLoading && !isError && (
-                      <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
+                  {isLoading && !isError && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
                         <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                        <p className="text-xs text-white/30 animate-pulse">
-                          Loading image...
-                        </p>
-                      </div>
-                    )}
+                        <p className="text-xs text-white/30 animate-pulse">Loading image...</p>
+                    </div>
+                  )}
 
-                    {/* Error State */}
-                    {isError && (
-                      <div className="absolute inset-0 flex items-center justify-center z-20 p-4">
-                        <div className="flex flex-col items-center justify-center text-center space-y-3 p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-md max-w-xs w-full">
-                          <div className="p-3 bg-white/5 rounded-full">
-                            <ImageOff className="h-8 w-8 text-white/40" />
-                          </div>
-                          <div className="space-y-1">
-                            <p className="text-sm font-medium text-white/80">
-                              Image Failed to Load
-                            </p>
-                            <p className="text-[11px] text-white/40 leading-relaxed">
-                              The image file may be missing or the link is
-                              broken.
-                            </p>
-                          </div>
+                  {/* === ERROR STATE ESTETIK (SAMA DENGAN CERTIFICATE) === */}
+                  {isError && (
+                    <div className="flex flex-col items-center justify-center text-center space-y-4 z-20 px-4">
+                        <div className="relative">
+                            <div className="absolute inset-0 blur-lg bg-red-500/10 rounded-full" />
+                            <ImageOff className="h-12 w-12 text-white/20 relative z-10" strokeWidth={1} />
                         </div>
-                      </div>
-                    )}
+                        
+                        <div className="space-y-1">
+                            <p className="text-sm font-medium text-white/70">Image Not Found</p>
+                            <p className="text-xs text-white/30 max-w-[200px] mx-auto leading-relaxed">
+                                The image file may be missing or the link is broken.
+                            </p>
+                        </div>
+                    </div>
+                  )}
 
-                    {!isError && (
-                      <>
-                        {/* Background Blur */}
-                        <div className="absolute inset-0 z-0">
-                          <Image
+                  {!isError && (
+                    <>
+                      <div className="absolute inset-0 z-0">
+                        <Image
                             src={item.image}
                             alt=""
                             fill
                             className={cn(
-                              "object-cover blur-3xl scale-110 brightness-[0.3]",
-                              isLoading
-                                ? "opacity-0"
-                                : "opacity-100 transition-opacity duration-1000"
+                              "object-cover blur-3xl scale-110 brightness-[0.3]", 
+                              isLoading ? "opacity-0" : "opacity-100 transition-opacity duration-1000"
                             )}
                             priority={index === 0}
-                          />
-                        </div>
+                        />
+                      </div>
 
-                        {/* Gambar Utama */}
-                        <div className="relative w-full h-full z-10 p-0 sm:p-4">
-                          <Image
-                            src={item.image}
-                            alt={item.caption}
-                            fill
-                            className={cn(
-                              "object-contain drop-shadow-2xl transition-all duration-500 ease-in-out",
-                              isLoading
-                                ? "opacity-0 scale-95"
-                                : "opacity-100 scale-100"
-                            )}
-                            onLoad={() => handleImageLoad(index)}
-                            onError={() => handleImageError(index)}
-                            priority={index === 0}
-                          />
-                        </div>
-                      </>
-                    )}
+                      <div className="relative w-full h-full z-10 p-0 sm:p-4">
+                        <Image
+                          src={item.image}
+                          alt={item.caption}
+                          fill
+                          className={cn(
+                            "object-contain drop-shadow-2xl transition-all duration-500 ease-in-out", 
+                            isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                          )}
+                          onLoad={() => handleImageLoad(index)}
+                          onError={() => handleImageError(index)}
+                          priority={index === 0}
+                        />
+                      </div>
+                    </>
+                  )}
 
                     {/* Caption Overlay */}
                     <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 sm:p-6 pt-20 sm:pt-24 text-left z-40 pointer-events-none pb-8 sm:pb-6">

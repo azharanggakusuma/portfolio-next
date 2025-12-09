@@ -301,15 +301,25 @@ export function CertificateModal({
                   </p>
                 </div>
               )}
-
+              
               {isError && (
-                <div className="flex flex-col items-center justify-center text-center space-y-3 z-20">
-                  <div className="p-3 bg-white/5 rounded-full">
-                    <ImageOff className="h-8 w-8 text-white/40" />
+                <div className="flex flex-col items-center justify-center text-center space-y-4 z-20 px-4">
+                  <div className="relative">
+                    <div className="absolute inset-0 blur-lg bg-red-500/10 rounded-full" />
+                    <ImageOff
+                      className="h-12 w-12 text-white/20 relative z-10"
+                      strokeWidth={1}
+                    />
                   </div>
-                  <p className="text-sm font-medium text-white/80">
-                    Failed to load certificate
-                  </p>
+
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium text-white/70">
+                      Certificate Not Found
+                    </p>
+                    <p className="text-xs text-white/30 max-w-[200px] mx-auto leading-relaxed">
+                      The file may have been moved or deleted from the source.
+                    </p>
+                  </div>
                 </div>
               )}
 
