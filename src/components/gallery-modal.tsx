@@ -15,7 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { MapPin, ImageIcon, X, Loader2, ImageOff, Maximize2, Minimize2, AlertCircle } from "lucide-react";
+import { MapPin, ImageIcon, X, Loader2, ImageOff, Maximize2, Minimize2 } from "lucide-react";
 import { GalleryItem } from "@/data/resume";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -126,14 +126,14 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
               <CarouselItem key={index} className="p-0 h-full">
                 <div 
                   className={cn(
-                    "relative w-full flex flex-col justify-center items-center bg-black/20",
+                    "relative w-full flex flex-col justify-center items-center bg-black overflow-hidden",
                     isFullscreen ? "h-[100dvh]" : "h-[100dvh] sm:h-[60vh] md:h-[75vh]"
                   )}
                 >
                   
                   {/* Loading Spinner */}
                   {isLoading && !isError && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-20 gap-3">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-30 gap-3">
                         <Loader2 className="h-10 w-10 animate-spin text-white/50" />
                         <p className="text-xs text-white/30 animate-pulse">Loading image...</p>
                     </div>
@@ -141,7 +141,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
 
                   {/* Error State */}
                   {isError && (
-                    <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+                    <div className="absolute inset-0 flex items-center justify-center z-20 p-4">
                         <div className="flex flex-col items-center justify-center text-center space-y-3 p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-md max-w-xs w-full">
                             <div className="p-3 bg-white/5 rounded-full">
                                 <ImageOff className="h-8 w-8 text-white/40" />
@@ -156,26 +156,39 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                     </div>
                   )}
 
-                  {/* Gambar */}
                   {!isError && (
-                    <div className="relative w-full h-full z-10">
-                      <Image
-                        src={item.image}
-                        alt={item.caption}
-                        fill
-                        className={cn(
-                          "object-contain transition-all duration-700 ease-in-out",
-                          isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"
-                        )}
-                        onLoad={() => handleImageLoad(index)}
-                        onError={() => handleImageError(index)}
-                        priority={index === 0}
-                      />
-                    </div>
+                    <>
+                      <div className="absolute inset-0 z-0">
+                        <Image
+                            src={item.image}
+                            alt=""
+                            fill
+                            className={cn(
+                              "object-cover blur-3xl scale-110 brightness-[0.3]", 
+                              isLoading ? "opacity-0" : "opacity-100 transition-opacity duration-1000"
+                            )}
+                            priority={index === 0}
+                        />
+                      </div>
+                      <div className="relative w-full h-full z-10 p-0 sm:p-4">
+                        <Image
+                          src={item.image}
+                          alt={item.caption}
+                          fill
+                          className={cn(
+                            "object-contain drop-shadow-2xl transition-all duration-500 ease-in-out", 
+                            isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                          )}
+                          onLoad={() => handleImageLoad(index)}
+                          onError={() => handleImageError(index)}
+                          priority={index === 0}
+                        />
+                      </div>
+                    </>
                   )}
 
                   {/* Caption Overlay */}
-                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-5 sm:p-6 pt-16 sm:pt-20 text-left z-40 pointer-events-none pb-8 sm:pb-6">
+                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 sm:p-6 pt-20 sm:pt-24 text-left z-40 pointer-events-none pb-8 sm:pb-6">
                     <p className="text-sm sm:text-base font-medium text-white leading-tight line-clamp-2 sm:line-clamp-none pointer-events-auto">
                       {item.caption}
                     </p>
@@ -185,7 +198,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                         {item.location}
                       </p>
                     )}
-                    <p className="text-[10px] sm:text-xs text-gray-500 text-right mt-2 font-mono pointer-events-auto">
+                    <p className="text-[10px] sm:text-xs text-white/50 text-right mt-2 font-mono pointer-events-auto">
                       {index + 1} / {items.length}
                     </p>
                   </div>
