@@ -15,7 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { MapPin, ImageIcon, X, Loader2, ImageOff, Maximize2, Minimize2 } from "lucide-react"; // Import Maximize2 & Minimize2
+import { MapPin, ImageIcon, X, Loader2, ImageOff, Maximize2, Minimize2, AlertCircle } from "lucide-react";
 import { GalleryItem } from "@/data/resume";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -28,7 +28,7 @@ interface GalleryModalProps {
 
 export function GalleryModal({ title, items }: GalleryModalProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false); // State untuk toggle fullscreen di desktop
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const [loadingStates, setLoadingStates] = useState<boolean[]>([]);
   const [errorStates, setErrorStates] = useState<boolean[]>([]);
@@ -37,7 +37,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
     if (isOpen && items.length > 0) {
       setLoadingStates(new Array(items.length).fill(true));
       setErrorStates(new Array(items.length).fill(false));
-      setIsFullscreen(false); // Reset fullscreen saat dibuka
+      setIsFullscreen(false);
     }
   }, [isOpen, items]);
 
@@ -81,15 +81,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
       
       <DialogContent 
         className={cn(
-          "bg-black/90 backdrop-blur-md p-0 overflow-hidden text-white [&>button]:hidden shadow-2xl transition-all duration-300 ease-in-out gap-0",
-          
-          // --- STYLE MOBILE (DEFAULT) ---
-          // Fullscreen total, tanpa border, tanpa rounded corner
+          "bg-black/95 backdrop-blur-xl p-0 overflow-hidden text-white [&>button]:hidden shadow-2xl transition-all duration-300 ease-in-out gap-0",
           "w-screen h-[100dvh] max-w-none m-0 rounded-none border-none", 
-
-          // --- STYLE DESKTOP (JIKA TIDAK FULLSCREEN) ---
-          // Mengembalikan tampilan modal "windowed" hanya jika isFullscreen FALSE
-          // Dan hanya berlaku di layar sm (tablet) ke atas
           !isFullscreen && "sm:max-w-5xl sm:h-auto sm:rounded-xl sm:border sm:border-white/10 sm:my-auto"
         )}
       >
@@ -101,7 +94,6 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
           </DialogTitle>
           
           <div className="flex items-center gap-2 pointer-events-auto">
-            {/* TOMBOL FULLSCREEN (Hanya muncul di Desktop 'hidden sm:flex') */}
             <Button
               variant="ghost"
               size="icon"
@@ -112,14 +104,13 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
               {isFullscreen ? <Minimize2 className="h-5 w-5" /> : <Maximize2 className="h-5 w-5" />}
             </Button>
 
-            {/* Tombol Close */}
             <Button
               variant="ghost"
               size="icon"
               className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
               onClick={() => setIsOpen(false)}
             >
-              <X className="h-6 w-6" /> {/* Ukuran ikon X sedikit diperbesar untuk mobile */}
+              <X className="h-6 w-6" />
               <span className="sr-only">Close</span>
             </Button>
           </div>
@@ -133,29 +124,35 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
 
                return (
               <CarouselItem key={index} className="p-0 h-full">
-                {/* CONTAINER GAMBAR */}
                 <div 
                   className={cn(
                     "relative w-full flex flex-col justify-center items-center bg-black/20",
-                    // TINGGI DINAMIS:
-                    // 1. Mobile (Default) / Desktop Fullscreen: h-[100dvh]
-                    // 2. Desktop Normal (!isFullscreen): sm:h-[60vh] md:h-[75vh]
                     isFullscreen ? "h-[100dvh]" : "h-[100dvh] sm:h-[60vh] md:h-[75vh]"
                   )}
                 >
                   
                   {/* Loading Spinner */}
                   {isLoading && !isError && (
-                    <div className="absolute inset-0 flex items-center justify-center z-20">
-                        <Loader2 className="h-10 w-10 animate-spin text-white/40" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-20 gap-3">
+                        <Loader2 className="h-10 w-10 animate-spin text-white/50" />
+                        <p className="text-xs text-white/30 animate-pulse">Loading image...</p>
                     </div>
                   )}
 
                   {/* Error State */}
                   {isError && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-white/40">
-                        <ImageOff className="h-16 w-16 mb-2 opacity-50" />
-                        <p className="text-sm font-medium">Image not available</p>
+                    <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+                        <div className="flex flex-col items-center justify-center text-center space-y-3 p-6 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-md max-w-xs w-full">
+                            <div className="p-3 bg-white/5 rounded-full">
+                                <ImageOff className="h-8 w-8 text-white/40" />
+                            </div>
+                            <div className="space-y-1">
+                                <p className="text-sm font-medium text-white/80">Image Failed to Load</p>
+                                <p className="text-[11px] text-white/40 leading-relaxed">
+                                    The image file may be missing or the link is broken.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                   )}
 
@@ -167,8 +164,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
                         alt={item.caption}
                         fill
                         className={cn(
-                          "object-contain transition-opacity duration-500 ease-in-out",
-                          isLoading ? "opacity-0" : "opacity-100"
+                          "object-contain transition-all duration-700 ease-in-out",
+                          isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"
                         )}
                         onLoad={() => handleImageLoad(index)}
                         onError={() => handleImageError(index)}
@@ -199,8 +196,8 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
           
           {items.length > 1 && (
             <>
-              <CarouselPrevious className="hidden sm:flex left-4 border-white/10 bg-black/40 hover:bg-black/60 text-white z-50 h-10 w-10 backdrop-blur-sm" />
-              <CarouselNext className="hidden sm:flex right-4 border-white/10 bg-black/40 hover:bg-black/60 text-white z-50 h-10 w-10 backdrop-blur-sm" />
+              <CarouselPrevious className="hidden sm:flex left-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors" />
+              <CarouselNext className="hidden sm:flex right-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors" />
             </>
           )}
         </Carousel>
