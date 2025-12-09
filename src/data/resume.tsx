@@ -233,7 +233,7 @@ export const DATA = {
       location: "Buleleng, Bali, Indonesia",
       description:
         "Participated in the Merdeka Student Exchange Program (PMM) Batch 4, where I explored Balinese culture firsthand and engaged in cross-disciplinary courses that broadened my academic perspective beyond my primary field of study. This experience strengthened my adaptability, cultural awareness, and ability to learn in diverse academic environments.",
-      certificateUrl: "https://google.com",
+      certificateUrl: "https://drive.google.com/file/d/1QMQLNO2X06SVBygIOdO5EJP4sYVj8Ez2/view?usp=sharing",
       gallery: [
         {
           image: "/gallery/pmm-1.jpg",

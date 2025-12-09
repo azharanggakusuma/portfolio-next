@@ -4,10 +4,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileText } from "lucide-react";
-import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
 import { GalleryModal } from "./gallery-modal";
+import { CertificateModal } from "./certificate-modal";
 import { GalleryItem } from "@/data/resume";
 
 interface AcademicCardProps {
@@ -75,22 +75,30 @@ export const AcademicCard = ({
           )}
 
           <div className="flex flex-wrap gap-2 mt-1">
+            
+            {/* 1. TOMBOL CERTIFICATE (Pakai Component Baru) */}
             {certificateUrl && (
-              <Link href={certificateUrl} target="_blank">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-3 gap-1.5 text-[10px] h-7 font-medium"
-                >
-                  <FileText className="h-3 w-3" />
-                  Certificate
-                </Button>
-              </Link>
+              <CertificateModal 
+                href={certificateUrl}
+                alt={`${title} Certificate`}
+                trigger={
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="mt-3 gap-1.5 text-[10px] h-7 font-medium"
+                  >
+                    <FileText className="h-3 w-3" />
+                    Certificate
+                  </Button>
+                }
+              />
             )}
 
+            {/* 2. TOMBOL GALERI (Tetap pakai GalleryModal) */}
             {gallery && gallery.length > 0 && (
               <GalleryModal title={title} items={gallery} />
             )}
+            
           </div>
         </div>
       </div>
