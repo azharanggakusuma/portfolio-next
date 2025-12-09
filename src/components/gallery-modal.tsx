@@ -167,46 +167,44 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
           
           <div className="flex items-center gap-1 pointer-events-auto">
             
-            {/* GROUP: TOOLS (Download, Copy, Fullscreen) */}
-            <div className="hidden sm:flex items-center gap-1 mr-2">
-              {/* 1. Download */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
-                onClick={handleDownload}
-                title="Download Image"
-              >
-                <Download className="h-4 w-4" />
-              </Button>
+            {/* 1. Download (Muncul di Mobile & Desktop) */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
+              onClick={handleDownload}
+              title="Download Image"
+            >
+              <Download className="h-4 w-4" />
+            </Button>
 
-              {/* 2. Copy Link */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
-                onClick={handleCopyLink}
-                title="Copy Image Link"
-              >
-                {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
-              </Button>
+            {/* 2. Copy Link (Muncul di Mobile & Desktop) */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
+              onClick={handleCopyLink}
+              title="Copy Image Link"
+            >
+              {copied ? <Check className="h-4 w-4 text-green-400" /> : <LinkIcon className="h-4 w-4" />}
+            </Button>
 
-              {/* 3. Fullscreen Toggle */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
-                onClick={() => setIsFullscreen(!isFullscreen)}
-                title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-              >
-                {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
-              </Button>
-            </div>
+            {/* 3. Fullscreen Toggle (HANYA MUNCUL DI DESKTOP/TABLET 'hidden sm:flex') */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hidden sm:flex text-white/70 hover:text-white hover:bg-white/10 rounded-full h-9 w-9"
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+            >
+              {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+            </Button>
 
-            {/* SEPARATOR: Garis tipis pemisah antara Tools dan Close (Optional, visual saja) */}
-            <div className="hidden sm:block w-px h-6 bg-white/10 mx-1"></div>
+            {/* SEPARATOR (Sekarang MUNCUL DI SEMUA PERANGKAT) */}
+            {/* Menghapus class 'hidden sm:block' agar tampil di mobile juga */}
+            <div className="w-px h-6 bg-white/10 mx-1"></div>
 
-            {/* GROUP: CLOSE */}
+            {/* 4. Close (Muncul di Mobile & Desktop) */}
             <Button
               variant="ghost"
               size="icon"
@@ -316,6 +314,7 @@ export function GalleryModal({ title, items }: GalleryModalProps) {
           
           {items.length > 1 && (
             <>
+              {/* Tombol Navigasi Desktop */}
               <CarouselPrevious className="hidden sm:flex left-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed" />
               <CarouselNext className="hidden sm:flex right-4 h-10 w-10 z-50 rounded-full border-transparent bg-transparent text-white/70 hover:bg-white/10 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed" />
             </>
