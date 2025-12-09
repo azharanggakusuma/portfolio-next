@@ -134,16 +134,10 @@ export function CertificateModal({ href, alt, trigger }: CertificateModalProps) 
           <div className="flex items-center gap-1 pointer-events-auto">
             <TooltipProvider delayDuration={300}>
               
-              {/* GROUP: Action Buttons (Download & Copy) */}
-              {/* ANIMASI DITERAPKAN DI SINI:
-                  - Jika isLoading: opacity-0 translate-x-8 (Hilang & Geser Kanan)
-                  - Jika selesai: opacity-100 translate-x-0 (Muncul & Geser Kiri)
-              */}
               <div className={cn(
                 "flex items-center gap-1 transition-all duration-500 ease-out",
                 isLoading ? "opacity-0 translate-x-8 pointer-events-none" : "opacity-100 translate-x-0"
               )}>
-                  {/* Download */}
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
@@ -163,7 +157,6 @@ export function CertificateModal({ href, alt, trigger }: CertificateModalProps) 
                     </TooltipPortal>
                   </Tooltip>
 
-                  {/* Copy Link */}
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
@@ -184,7 +177,6 @@ export function CertificateModal({ href, alt, trigger }: CertificateModalProps) 
                   </Tooltip>
               </div>
 
-              {/* Fullscreen Toggle (Selalu muncul) */}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
@@ -203,16 +195,8 @@ export function CertificateModal({ href, alt, trigger }: CertificateModalProps) 
                 </TooltipPortal>
               </Tooltip>
 
-              {/* Separator Desktop */}
               <div className="hidden sm:block w-px h-6 bg-white/10 mx-1"></div>
-              
-              {/* Separator Mobile (Ikut animasi muncul) */}
-              <div className={cn(
-                  "sm:hidden w-px h-6 bg-white/10 mx-1 transition-all duration-500 ease-out",
-                  isLoading ? "opacity-0 translate-x-8" : "opacity-100 translate-x-0"
-              )}></div>
 
-              {/* Close (Selalu muncul) */}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
@@ -240,37 +224,37 @@ export function CertificateModal({ href, alt, trigger }: CertificateModalProps) 
           
           {/* === CASE 1 & 2: PDF VIEWER (Drive & Local) === */}
           {(contentType === 'drive' || contentType === 'pdf') && (
-             <div className="w-full h-full pt-[5.5rem] pb-6 px-4 sm:px-10 flex flex-col justify-center relative z-10">
+             // PERUBAHAN DI SINI:
+             // 1. pt-20: Jarak dari atas (untuk header)
+             // 2. w-full h-full: Mengisi penuh sisa ruang
+             // 3. Hapus px-4, pb-6, border, shadow, rounded agar benar-benar FULL
+             <div className="w-full h-full pt-20 bg-zinc-950 relative z-10">
                 
-                {/* Frame PDF */}
-                <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-900/50">
-                    
-                    {/* Loading Overlay (Spinner) */}
-                    {isLoading && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-zinc-900/90 backdrop-blur-sm">
-                            <Loader2 className="h-10 w-10 animate-spin text-white/50" />
-                            <p className="text-xs text-white/50 animate-pulse mt-3 font-medium">Loading document...</p>
-                        </div>
-                    )}
+                {/* Loading Overlay */}
+                {isLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-20 bg-zinc-950">
+                        <Loader2 className="h-10 w-10 animate-spin text-white/50" />
+                        <p className="text-xs text-white/50 animate-pulse mt-3 font-medium">Loading document...</p>
+                    </div>
+                )}
 
-                    {driveId ? (
-                        <iframe 
-                        // Tambahkan parameter ?rm=minimal agar tampilan sedikit lebih bersih (jika didukung)
-                        src={`https://drive.google.com/file/d/${driveId}/preview?rm=minimal`} 
-                        className="w-full h-full"
-                        title={alt}
-                        allow="autoplay"
-                        onLoad={() => setIsLoading(false)} 
-                        />
-                    ) : (
-                        <iframe 
-                        src={`${href}#toolbar=0&navpanes=0&scrollbar=0`} 
-                        className="w-full h-full"
-                        title={alt}
-                        onLoad={() => setIsLoading(false)} 
-                        />
-                    )}
-                </div>
+                {driveId ? (
+                    <iframe 
+                    // Tambahkan ?rm=minimal untuk mencoba mode minimalis Drive
+                    src={`https://drive.google.com/file/d/${driveId}/preview?rm=minimal`} 
+                    className="w-full h-full border-none"
+                    title={alt}
+                    allow="autoplay"
+                    onLoad={() => setIsLoading(false)} 
+                    />
+                ) : (
+                    <iframe 
+                    src={`${href}#toolbar=0&navpanes=0&scrollbar=0`} 
+                    className="w-full h-full border-none"
+                    title={alt}
+                    onLoad={() => setIsLoading(false)} 
+                    />
+                )}
              </div>
           )}
 
