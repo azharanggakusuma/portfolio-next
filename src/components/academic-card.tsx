@@ -17,7 +17,7 @@ interface AcademicCardProps {
   period: string;
   description?: string;
   certificateUrl?: string;
-  location?: string; // Tambahkan properti location
+  location?: string;
 }
 
 export const AcademicCard = ({
@@ -30,7 +30,7 @@ export const AcademicCard = ({
   period,
   description,
   certificateUrl,
-  location, // Ambil properti location
+  location,
 }: AcademicCardProps) => {
   return (
     <div className="flex bg-transparent">

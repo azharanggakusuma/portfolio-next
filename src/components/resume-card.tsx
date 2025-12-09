@@ -77,7 +77,7 @@ export const ResumeCard = ({
               </div>
             </div>
             
-            {/* Baris 2: Posisi (Subtitle) & Badges --> SEJAJAR */}
+            {/* Baris 2: Posisi (Subtitle) & Badges */}
             {(subtitle || badges) && (
               <div className="font-sans text-xs mt-1 flex flex-wrap gap-2 items-center">
                 {subtitle && <span className="font-medium">{subtitle}</span>}
@@ -98,7 +98,7 @@ export const ResumeCard = ({
               </div>
             )}
 
-            {/* Baris 3: Lokasi (Sendiri di bawah) */}
+            {/* Baris 3: Lokasi */}
             {location && (
               <div className="font-sans text-xs mt-1 text-muted-foreground">
                 {location}
