@@ -51,7 +51,6 @@ export function ProjectCard({
         className
       )}
     >
-      {/* ⭐ Mini badge — top-right (Open Source / Closed Source) */}
       {typeof openSource === "boolean" && (
         <div className="absolute top-2 right-2 z-20">
           <span
@@ -122,9 +121,9 @@ export function ProjectCard({
 
       {/* LINKS */}
       <CardFooter className="px-2 pb-2">
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-2">
           {links?.map((link, idx) => {
-            const disabled = openSource === false || !link.href;
+            const disabled = !link.href;
 
             if (disabled) {
               return (

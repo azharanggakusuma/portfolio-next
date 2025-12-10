@@ -266,6 +266,12 @@ export const DATA = {
           href: "https://datadikti.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          // Source link untuk proyek Open Source
+          type: "Source",
+          href: "https://github.com/azharanggakusuma/datadikti",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       image: "/projects/datadikti.png",
       video: "",
@@ -285,6 +291,12 @@ export const DATA = {
           type: "Website",
           href: "",
           icon: <Icons.globe className="size-3" />,
+        },
+        {
+          // Source link kosong untuk proyek Closed Source
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "/projects/pusdatin.png",
@@ -306,6 +318,12 @@ export const DATA = {
           href: "",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          // Source link kosong untuk proyek Closed Source
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       image: "/projects/inventori.png",
       video: "",
@@ -325,6 +343,12 @@ export const DATA = {
           type: "Website",
           href: "",
           icon: <Icons.globe className="size-3" />,
+        },
+        {
+          // Source link kosong untuk proyek Closed Source
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "/projects/siperji.png",
@@ -346,6 +370,12 @@ export const DATA = {
           href: "",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          // Source link kosong untuk proyek Closed Source
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       image: "/projects/mn-drupadi.png",
       video: "",
@@ -366,6 +396,12 @@ export const DATA = {
           href: "https://movie-app-seven-orcin.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          // Source link untuk proyek Open Source
+          type: "Source",
+          href: "https://github.com/azharanggakusuma/movie-app",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       image: "/projects/movieapp.png",
       video: "",
@@ -385,6 +421,12 @@ export const DATA = {
           type: "Website",
           href: "https://2-three-pi.vercel.app",
           icon: <Icons.globe className="size-3" />,
+        },
+        {
+          // Source link untuk proyek Open Source
+          type: "Source",
+          href: "https://github.com/azharanggakusuma/opentrip",
+          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "/projects/opentrip.png",
@@ -413,6 +455,12 @@ export const DATA = {
           href: "",
           icon: <Icons.globe className="size-3" />,
         },
+        {
+          // Source link kosong untuk proyek Closed Source
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       image: "/projects/e-vote.png",
       video: "",
@@ -439,6 +487,12 @@ export const DATA = {
           type: "Website",
           href: "",
           icon: <Icons.globe className="size-3" />,
+        },
+        {
+          // Source link kosong untuk proyek Closed Source
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "/projects/multimedia.png",
