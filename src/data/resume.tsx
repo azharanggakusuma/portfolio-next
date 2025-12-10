@@ -494,14 +494,14 @@ export const DATA = {
     },
     // --- Kategori APP ---
     {
-      title: "Muslim Pocket Guide",
+      title: "Lorem Ipsum",
       href: "",
       dates: "",
       active: true,
       openSource: true,
       category: "app",
       description:
-        "A comprehensive daily companion app for Muslims featuring accurate prayer times based on location, Qibla direction compass, and Al-Quran reading with translation.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       technologies: ["React Native", "Expo", "Typescript", "Location API"],
       links: [
         {
@@ -511,22 +511,22 @@ export const DATA = {
         },
         {
           type: "Source",
-          href: "https://github.com/azharanggakusuma/muslim-pocket",
+          href: "",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Muslim+Pocket+Guide",
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
     },
     {
-      title: "FitTrack - Workout Planner",
+      title: "Lorem Ipsum",
       href: "",
       dates: "",
       active: true,
       openSource: false,
       category: "app",
       description:
-        "A personal fitness application designed to help users track their daily workouts, monitor calorie intake, and visualize progress through interactive charts.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       technologies: ["Flutter", "Dart", "Firebase", "Google Fit API"],
       links: [
         {
@@ -540,25 +540,25 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=FitTrack+Mobile",
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
     },
 
     // --- Kategori UI/UX ---
     {
-      title: "Course.io - E-Learning Platform",
-      href: "https://www.figma.com/proto/123456789/course-io-learning-platform",
+      title: "Lorem Ipsum",
+      href: "",
       dates: "",
       active: true,
       openSource: false,
       category: "ui/ux",
       description:
-        "Designed a modern and accessible Learning Management System (LMS) interface. The project focused on optimizing the student learning journey, course discovery flow, and instructor dashboard.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       technologies: ["Figma", "Auto Layout", "Prototyping", "Whimsical"],
       links: [
         {
           type: "Website",
-          href: "https://www.figma.com/proto/123456789/course-io-learning-platform",
+          href: "",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -567,23 +567,23 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Course.io+Redesign",
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
     },
     {
-      title: "Fintech Wallet Mobile App",
-      href: "https://www.figma.com/proto/987654321/fintech-wallet-app",
+      title: "Lorem Ipsum",
+      href: "",
       dates: "",
       active: true,
       openSource: false,
       category: "ui/ux",
       description:
-        "A high-fidelity mobile app design for a digital wallet service. Features included transaction history, QR payments, and spending analytics, with a focus on clean aesthetics and usability.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       technologies: ["Figma", "UI Kits", "Wireframing", "User Flow"],
       links: [
         {
           type: "Website",
-          href: "https://www.figma.com/proto/987654321/fintech-wallet-app",
+          href: "",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -592,44 +592,44 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Fintech+Wallet+UI",
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
     },
     // --- Kategori ML/DL ---
     {
-      title: "Rice Leaf Disease Classification",
+      title: "Lorem Ipsum",
       href: "",
       dates: "",
       active: true,
       openSource: true,
       category: "ml/dl",
       description:
-        "Deep learning model capable of classifying various rice leaf diseases (Blast, Blight, Tungro) using MobileNetV2 architecture with 96% accuracy.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       technologies: ["Python", "TensorFlow", "Keras", "Google Colab"],
       links: [
         {
-          type: "Paper",
-          href: "https://sisfotek.org/paper-link",
+          type: "Website",
+          href: "",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/azharanggakusuma/rice-leaf-detection",
+          href: "",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Rice+Disease+AI",
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
     },
     {
-      title: "Sentiment Analysis on Product Reviews",
+      title: "Lorem Ipsum",
       href: "",
       dates: "",
       active: true,
       openSource: false,
       category: "ml/dl",
       description:
-        "An NLP project that analyzes customer reviews from e-commerce platforms to categorize sentiment (Positive, Negative, Neutral) using LSTM and Word2Vec.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       technologies: ["Python", "NLTK", "Scikit-Learn", "Streamlit"],
       links: [
         {
@@ -643,7 +643,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Sentiment+Analysis",
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
     },
   ],

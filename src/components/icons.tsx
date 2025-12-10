@@ -1,5 +1,5 @@
-import { GlobeIcon, MailIcon } from "lucide-react";
-import { SiTelegram, SiHashnode } from "react-icons/si";
+import { GlobeIcon, MailIcon, Smartphone, FileText } from "lucide-react";
+import { SiTelegram, SiHashnode, SiFigma } from "react-icons/si";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
@@ -7,6 +7,9 @@ export const Icons = {
   globe: (props: IconProps) => <GlobeIcon {...props} />,
   email: (props: IconProps) => <MailIcon {...props} />,
   education: (props: IconProps) => <MailIcon {...props} />,
+  app: (props: IconProps) => <Smartphone {...props} />,
+  figma: (props: IconProps) => <SiFigma {...props} />,
+  doc: (props: IconProps) => <FileText {...props} />,
   telegram: (props: IconProps) => <SiTelegram {...props} />,
   hashnode: (props: IconProps) => <SiHashnode {...props} />,
   linkedin: (props: IconProps) => (
