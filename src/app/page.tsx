@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { EducationCard } from "@/components/education-card";
@@ -23,58 +21,75 @@ import { UrlObject } from "url";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
+  const [filter, setFilter] = useState<
+    "all" | "web" | "app" | "ui/ux" | "ml/dl"
+  >("all");
 
   const filteredProjects = DATA.projects.filter((p) => {
     if (filter === "all") return true;
     return p.category === filter;
   });
 
+  const HERO_DELAY = BLUR_FADE_DELAY;
+  const ABOUT_DELAY = BLUR_FADE_DELAY * 3;
+  const SKILLS_DELAY = BLUR_FADE_DELAY * 5;
+  const WORK_DELAY = BLUR_FADE_DELAY * 7;
+  const EDUCATION_DELAY = BLUR_FADE_DELAY * 9;
+  const ACADEMIC_DELAY = BLUR_FADE_DELAY * 11;
+  const PROJECTS_DELAY = BLUR_FADE_DELAY * 13;
+  const CONTACT_DELAY = BLUR_FADE_DELAY * 15;
+
   return (
     <main className="flex flex-col min-h-[100dvh]">
+      {/* --- HERO SECTION --- */}
       <section id="hero">
         <div className="mx-auto w-full max-w-3xl space-y-8">
           <div className="gap-2 flex justify-between flex-col-reverse md:flex-row">
             <div className="justify-center flex-col flex flex-1 space-y-1.5">
-              {/* <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className=""
-                yOffset={8}
-                text={}
-              /> */}
-              <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">
-                Hi, I&apos;m
-                <span className="inline-block">👋</span>
-                <span className="block">{DATA.name}</span>
-              </p>
-              <Markdown className="text-center md:text-start max-w-[600px] text-pretty font-sans md:text-lg">
-                {DATA.description}
-              </Markdown>
+              <BlurFade delay={HERO_DELAY}>
+                <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">
+                  Hi, I&apos;m {DATA.name}{" "}
+                  <span className="inline-block">👋</span>
+                </p>
+              </BlurFade>
+              <BlurFade delay={HERO_DELAY + 0.05}>
+                <Markdown className="text-center md:text-start max-w-[600px] text-pretty font-sans md:text-lg">
+                  {DATA.description}
+                </Markdown>
+              </BlurFade>
             </div>
-            <Avatar className="size-36 mx-auto">
-              <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-              <AvatarFallback>{DATA.initials}</AvatarFallback>
-            </Avatar>
+            <BlurFade delay={HERO_DELAY}>
+              <Avatar className="size-36 mx-auto">
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarFallback>{DATA.initials}</AvatarFallback>
+              </Avatar>
+            </BlurFade>
           </div>
         </div>
       </section>
+
+      {/* --- ABOUT SECTION --- */}
       <section id="about" className="pt-6">
-        <h2 className="text-xl font-bold">About</h2>
-        {/* <BlurFade delay={BLUR_FADE_DELAY}> */}
-        <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-          {DATA.summary}
-        </Markdown>
-        {/* </BlurFade> */}
+        <BlurFade delay={ABOUT_DELAY}>
+          <h2 className="text-xl font-bold">About</h2>
+        </BlurFade>
+        <BlurFade delay={ABOUT_DELAY + 0.05}>
+          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+            {DATA.summary}
+          </Markdown>
+        </BlurFade>
       </section>
+
+      {/* --- SKILLS SECTION --- */}
       <section id="skills" className="pt-6">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY}>
+          <BlurFade delay={SKILLS_DELAY}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name + id} delay={BLUR_FADE_DELAY + id * 0.05}>
-                <Badge key={skill.name + id} className="flex gap-2 px-2 py-1 text-[10px]">
+              <BlurFade key={skill.name + id} delay={SKILLS_DELAY + id * 0.05}>
+                <Badge className="flex gap-2 px-2 py-1 text-[10px]">
                   <skill.icon className="h-4 w-4" />
                   {skill.name}
                 </Badge>
@@ -83,18 +98,16 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* --- EXPERIENCE SECTION --- */}
       <section id="experience" className="pt-6">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+          <BlurFade delay={WORK_DELAY}>
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company + id}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
+            <BlurFade key={work.company + id} delay={WORK_DELAY + id * 0.05}>
               <ResumeCard
-                key={work.company + id}
                 logoUrl={work.logoUrl}
                 altText={work.company}
                 title={work.company}
@@ -109,18 +122,19 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      {/* --- EDUCATION SECTION --- */}
       <section id="education" className="pt-6">
         <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <BlurFade delay={EDUCATION_DELAY}>
             <h2 className="text-xl font-bold">Education</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade
               key={education.school + id}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+              delay={EDUCATION_DELAY + id * 0.05}
             >
               <EducationCard
-                key={education.school + id}
                 href={education.href}
                 logoUrl={education.logoUrl}
                 altText={education.school}
@@ -132,16 +146,18 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      {/* --- ACADEMIC EXPERIENCE SECTION --- */}
       <section id="academic-experience" className="pt-6">
         <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+          <BlurFade delay={ACADEMIC_DELAY}>
             <h2 className="text-xl font-bold">Academic Experience</h2>
           </BlurFade>
-          
+
           {DATA.academicExperience.map((item, id) => (
             <BlurFade
               key={item.school + item.degree + id}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+              delay={ACADEMIC_DELAY + id * 0.05}
             >
               <AcademicCard
                 logoUrl={item.logoUrl}
@@ -149,13 +165,11 @@ export default function Page() {
                 title={item.school}
                 subtitle={item.degree}
                 href={item.href}
-                // Jika start == end, tampilkan start saja. Jika beda, tampilkan rentang.
                 period={
-                  item.start === item.end 
-                    ? item.start 
+                  item.start === item.end
+                    ? item.start
                     : `${item.start} - ${item.end}`
                 }
-                // ----------------------------------------
                 location={item.location}
                 description={item.description}
                 certificateUrl={item.certificateUrl}
@@ -165,9 +179,11 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      {/* --- PROJECTS SECTION --- */}
       <section id="projects" className="pt-6">
         <div className="space-y-8 w-full">
-          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+          <BlurFade delay={PROJECTS_DELAY}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -177,44 +193,49 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground text-sm/relaxed xl:text-base/relaxed">
-                  This showcase features projects in Web Development, App Development, UI/UX, and ML/DL, highlighting clean interfaces, robust functionality, modern user experiences, and applied ML/DL techniques such as image classification and model development.
+                  A showcase of my projects in Web Development, App Development,
+                  UI/UX, and ML/DL.
                 </p>
               </div>
             </div>
           </BlurFade>
 
-          {/* TABS*/}
+          {/* Filter Tabs */}
           <div className="flex justify-center">
-            <div className="flex gap-1 bg-muted/40 p-1 rounded-full border">
-              {[
-                { value: "all", label: "All" },
-                { value: "web", label: "Web" },
-                { value: "app", label: "App" },
-                { value: "ui/ux", label: "UI/UX" },
-                { value: "ml/dl", label: "ML/DL" },
-              ].map((tab) => {
-                const active = filter === tab.value;
-                return (
-                  <button
-                    key={tab.value}
-                    onClick={() =>
-                      setFilter(tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl")
-                    }
-                    className={
-                      "px-3 py-1 text-xs sm:text-sm rounded-full transition-all duration-200 " +
-                      (active
-                        ? "bg-foreground text-background shadow-sm scale-[1.03]"
-                        : "text-muted-foreground hover:bg-muted scale-[0.98]")
-                    }
-                  >
-                    {tab.label}
-                  </button>
-                );
-              })}
-            </div>
+            <BlurFade delay={PROJECTS_DELAY + 0.05}>
+              <div className="flex gap-1 bg-muted/40 p-1 rounded-full border">
+                {[
+                  { value: "all", label: "All" },
+                  { value: "web", label: "Web" },
+                  { value: "app", label: "App" },
+                  { value: "ui/ux", label: "UI/UX" },
+                  { value: "ml/dl", label: "ML/DL" },
+                ].map((tab) => {
+                  const active = filter === tab.value;
+                  return (
+                    <button
+                      key={tab.value}
+                      onClick={() =>
+                        setFilter(
+                          tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl"
+                        )
+                      }
+                      className={
+                        "px-3 py-1 text-xs sm:text-sm rounded-full transition-all duration-200 " +
+                        (active
+                          ? "bg-foreground text-background shadow-sm scale-[1.03]"
+                          : "text-muted-foreground hover:bg-muted scale-[0.98]")
+                      }
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </BlurFade>
           </div>
 
-          {/* ⭐ PROJECT LIST / EMPTY STATE */}
+          {/* Project Grid */}
           <div className="min-h-[200px] flex flex-col items-center">
             {filteredProjects.length === 0 ? (
               <div className="mt-12 flex flex-col items-center text-center text-muted-foreground">
@@ -231,7 +252,7 @@ export default function Page() {
                 {filteredProjects.map((project, id) => (
                   <BlurFade
                     key={project.title + id}
-                    delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                    delay={PROJECTS_DELAY + id * 0.05}
                   >
                     <ProjectCard
                       href={project.href}
@@ -253,9 +274,10 @@ export default function Page() {
         </div>
       </section>
 
+      {/* --- CONTACT SECTION --- */}
       <section id="contact" className="pt-6">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <BlurFade delay={CONTACT_DELAY}>
             <div className="space-y-7">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -271,23 +293,25 @@ export default function Page() {
                 </p>
               </div>
               <div className="flex justify-center">
-                <BlurFade delay={0.1} inView>
+                <BlurFade delay={CONTACT_DELAY + 0.05}>
                   <div className="flex gap-5 flex-wrap">
                     {Object.entries(DATA.contact.social)
                       .filter(([_, social]) => social.contact)
                       .map(([name, social], index) => (
-                        <>
-                          <Tooltip key={index}>
-                            <TooltipTrigger asChild>
-                              <Link href={social.url as unknown as UrlObject}>
-                                <social.icon className="size-7" />
-                              </Link>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>{name}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </>
+                        <Tooltip key={name + index}>
+                          <TooltipTrigger asChild>
+                            <Link
+                              href={social.url as unknown as UrlObject}
+                              aria-label={`Visit my ${name} profile`}
+                              className="text-foreground/60 hover:text-foreground transition-colors"
+                            >
+                              <social.icon className="size-7" />
+                            </Link>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{name}</p>
+                          </TooltipContent>
+                        </Tooltip>
                       ))}
                   </div>
                 </BlurFade>
