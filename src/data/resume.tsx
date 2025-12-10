@@ -595,5 +595,56 @@ export const DATA = {
       image: "https://placehold.co/600x400?text=Fintech+Wallet+UI",
       video: "",
     },
+    // --- Kategori ML/DL ---
+    {
+      title: "Rice Leaf Disease Classification",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "ml/dl",
+      description:
+        "Deep learning model capable of classifying various rice leaf diseases (Blast, Blight, Tungro) using MobileNetV2 architecture with 96% accuracy.",
+      technologies: ["Python", "TensorFlow", "Keras", "Google Colab"],
+      links: [
+        {
+          type: "Paper",
+          href: "https://sisfotek.org/paper-link",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/azharanggakusuma/rice-leaf-detection",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=Rice+Disease+AI",
+      video: "",
+    },
+    {
+      title: "Sentiment Analysis on Product Reviews",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: false,
+      category: "ml/dl",
+      description:
+        "An NLP project that analyzes customer reviews from e-commerce platforms to categorize sentiment (Positive, Negative, Neutral) using LSTM and Word2Vec.",
+      technologies: ["Python", "NLTK", "Scikit-Learn", "Streamlit"],
+      links: [
+        {
+          type: "Website",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=Sentiment+Analysis",
+      video: "",
+    },
   ],
 } as const;

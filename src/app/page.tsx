@@ -23,7 +23,7 @@ import { UrlObject } from "url";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux">("all");
+  const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
 
   const filteredProjects = DATA.projects.filter((p) => {
     if (filter === "all") return true;
@@ -177,7 +177,7 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground text-sm/relaxed xl:text-base/relaxed">
-                  This showcase presents projects in web development, application development, and UI/UX, focusing on clean interfaces, functional user experiences, and modern design.
+                  This showcase features projects in Web Development, App Development, UI/UX, and ML/DL, highlighting clean interfaces, robust functionality, modern user experiences, and applied ML/DL techniques such as image classification and model development.
                 </p>
               </div>
             </div>
@@ -191,13 +191,14 @@ export default function Page() {
                 { value: "web", label: "Web" },
                 { value: "app", label: "App" },
                 { value: "ui/ux", label: "UI/UX" },
+                { value: "ml/dl", label: "ML/DL" },
               ].map((tab) => {
                 const active = filter === tab.value;
                 return (
                   <button
                     key={tab.value}
                     onClick={() =>
-                      setFilter(tab.value as "all" | "web" | "app" | "ui/ux")
+                      setFilter(tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl")
                     }
                     className={
                       "px-3 py-1 text-xs sm:text-sm rounded-full transition-all duration-200 " +

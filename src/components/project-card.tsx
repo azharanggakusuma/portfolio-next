@@ -26,7 +26,7 @@ interface Props {
     href: string;
   }[];
   openSource?: boolean;
-  category?: "web" | "app" | "ui/ux";
+  category?: "web" | "app" | "ui/ux" | "ml/dl";
   className?: string;
 }
 
@@ -51,6 +51,7 @@ export function ProjectCard({
         className
       )}
     >
+      {/* ⭐ Mini badge — top-right (Open Source / Closed Source) */}
       {typeof openSource === "boolean" && (
         <div className="absolute top-2 right-2 z-20">
           <span
@@ -121,8 +122,10 @@ export function ProjectCard({
 
       {/* LINKS */}
       <CardFooter className="px-2 pb-2">
+        {/* Menggunakan gap-2 agar jarak tombol lebih longgar */}
         <div className="flex flex-wrap gap-2">
           {links?.map((link, idx) => {
+            // Hanya disable jika link href-nya kosong
             const disabled = !link.href;
 
             if (disabled) {
