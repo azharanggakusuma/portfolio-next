@@ -293,7 +293,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link kosong untuk proyek Closed Source
           type: "Source",
           href: "",
           icon: <Icons.github className="size-3" />,
@@ -319,7 +318,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link kosong untuk proyek Closed Source
           type: "Source",
           href: "",
           icon: <Icons.github className="size-3" />,
@@ -345,7 +343,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link kosong untuk proyek Closed Source
           type: "Source",
           href: "",
           icon: <Icons.github className="size-3" />,
@@ -371,7 +368,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link kosong untuk proyek Closed Source
           type: "Source",
           href: "",
           icon: <Icons.github className="size-3" />,
@@ -456,7 +452,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link kosong untuk proyek Closed Source
           type: "Source",
           href: "",
           icon: <Icons.github className="size-3" />,
@@ -489,13 +484,115 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link kosong untuk proyek Closed Source
           type: "Source",
           href: "",
           icon: <Icons.github className="size-3" />,
         },
       ],
       image: "/projects/multimedia.png",
+      video: "",
+    },
+    // --- Kategori APP ---
+    {
+      title: "Muslim Pocket Guide",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "app",
+      description:
+        "A comprehensive daily companion app for Muslims featuring accurate prayer times based on location, Qibla direction compass, and Al-Quran reading with translation.",
+      technologies: ["React Native", "Expo", "Typescript", "Location API"],
+      links: [
+        {
+          type: "Website",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/azharanggakusuma/muslim-pocket",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=Muslim+Pocket+Guide",
+      video: "",
+    },
+    {
+      title: "FitTrack - Workout Planner",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: false,
+      category: "app",
+      description:
+        "A personal fitness application designed to help users track their daily workouts, monitor calorie intake, and visualize progress through interactive charts.",
+      technologies: ["Flutter", "Dart", "Firebase", "Google Fit API"],
+      links: [
+        {
+          type: "Website",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=FitTrack+Mobile",
+      video: "",
+    },
+
+    // --- Kategori UI/UX ---
+    {
+      title: "Course.io - E-Learning Platform",
+      href: "https://www.figma.com/proto/123456789/course-io-learning-platform",
+      dates: "",
+      active: true,
+      openSource: false,
+      category: "ui/ux",
+      description:
+        "Designed a modern and accessible Learning Management System (LMS) interface. The project focused on optimizing the student learning journey, course discovery flow, and instructor dashboard.",
+      technologies: ["Figma", "Auto Layout", "Prototyping", "Whimsical"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.figma.com/proto/123456789/course-io-learning-platform",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=Course.io+Redesign",
+      video: "",
+    },
+    {
+      title: "Fintech Wallet Mobile App",
+      href: "https://www.figma.com/proto/987654321/fintech-wallet-app",
+      dates: "",
+      active: true,
+      openSource: false,
+      category: "ui/ux",
+      description:
+        "A high-fidelity mobile app design for a digital wallet service. Features included transaction history, QR payments, and spending analytics, with a focus on clean aesthetics and usability.",
+      technologies: ["Figma", "UI Kits", "Wireframing", "User Flow"],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.figma.com/proto/987654321/fintech-wallet-app",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=Fintech+Wallet+UI",
       video: "",
     },
   ],
