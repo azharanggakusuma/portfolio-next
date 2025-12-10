@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Mail, FileText } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
@@ -8,6 +9,8 @@ import { EducationCard } from "@/components/education-card";
 import { AcademicCard } from "@/components/academic-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
@@ -23,19 +26,13 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
 
-  // Logika Filter Project
+  // Logika Filter
   const filteredProjects = DATA.projects.filter((project) => {
-    // Cek apakah project berstatus active: true
-    // Jika active: false, langsung skip (tidak ditampilkan)
-    if (!project.active) {
-      return false;
-    }
-    // Jika active, baru cek kategorinya
+    if (!project.active) return false;
     if (filter === "all") return true;
     return project.category === filter;
   });
 
-  // Definisi Variabel Delay Animasi
   const HERO_DELAY = BLUR_FADE_DELAY;
   const ABOUT_DELAY = BLUR_FADE_DELAY * 3;
   const SKILLS_DELAY = BLUR_FADE_DELAY * 5;
@@ -62,6 +59,28 @@ export default function Page() {
                   {DATA.description}
                 </Markdown>
               </BlurFade>
+              
+              {/* TOMBOL ACTION */}
+              <BlurFade delay={HERO_DELAY + 0.1}>
+                <div className="flex gap-2 justify-center md:justify-start mt-4">
+                  <Link
+                    href="#contact"
+                    className={cn(buttonVariants({ variant: "default" }), "w-full sm:w-auto flex items-center gap-2")}
+                  >
+                    <Mail className="size-4" />
+                    Contact Me
+                  </Link>
+                  <Link
+                    href="/resume.pdf"
+                    target="_blank"
+                    className={cn(buttonVariants({ variant: "outline" }), "w-full sm:w-auto flex items-center gap-2")}
+                  >
+                    <FileText className="size-4" />
+                    Download CV
+                  </Link>
+                </div>
+              </BlurFade>
+
             </div>
             <BlurFade delay={HERO_DELAY}>
               <Avatar className="size-36 mx-auto">
