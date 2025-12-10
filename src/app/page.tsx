@@ -73,8 +73,8 @@ export default function Page() {
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill.name} delay={BLUR_FADE_DELAY + id * 0.05}>
-                <Badge key={skill.name} className="flex gap-2 px-2 py-1 text-[10px]">
+              <BlurFade key={skill.name + id} delay={BLUR_FADE_DELAY + id * 0.05}>
+                <Badge key={skill.name + id} className="flex gap-2 px-2 py-1 text-[10px]">
                   <skill.icon className="h-4 w-4" />
                   {skill.name}
                 </Badge>
@@ -90,11 +90,11 @@ export default function Page() {
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
-              key={work.company}
+              key={work.company + id}
               delay={BLUR_FADE_DELAY * 6 + id * 0.05}
             >
               <ResumeCard
-                key={work.company}
+                key={work.company + id}
                 logoUrl={work.logoUrl}
                 altText={work.company}
                 title={work.company}
@@ -116,11 +116,11 @@ export default function Page() {
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade
-              key={education.school}
+              key={education.school + id}
               delay={BLUR_FADE_DELAY * 8 + id * 0.05}
             >
               <EducationCard
-                key={education.school}
+                key={education.school + id}
                 href={education.href}
                 logoUrl={education.logoUrl}
                 altText={education.school}
@@ -140,7 +140,7 @@ export default function Page() {
           
           {DATA.academicExperience.map((item, id) => (
             <BlurFade
-              key={item.school + item.degree}
+              key={item.school + item.degree + id}
               delay={BLUR_FADE_DELAY * 8 + id * 0.05}
             >
               <AcademicCard
@@ -230,7 +230,7 @@ export default function Page() {
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto w-full">
                 {filteredProjects.map((project, id) => (
                   <BlurFade
-                    key={project.title}
+                    key={project.title + id}
                     delay={BLUR_FADE_DELAY * 12 + id * 0.05}
                   >
                     <ProjectCard
