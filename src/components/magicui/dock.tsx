@@ -34,13 +34,15 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
-        if (React.isValidElement(child)) {
+        // PERBAIKAN 1: Menggunakan pengecekan tipe yang lebih aman
+        if (React.isValidElement(child) && child.type === DockIcon) {
           return React.cloneElement(child, {
-            mouseX,
+            mouseX: mouseX,
             magnification,
             distance,
           } as DockIconProps);
         }
+        // Jika bukan DockIcon (misal: Separator), kembalikan tanpa diubah
         return child;
       });
     };
@@ -82,7 +84,12 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const distanceCalc = useTransform(mouseX, (val: number) => {
+  // PERBAIKAN 2: Fallback agar tidak crash jika mouseX undefined
+  // Kita selalu panggil hooks (useMotionValue) agar urutan hooks tetap konsisten
+  const defaultMouseX = useMotionValue(Infinity);
+  const actualMouseX = mouseX || defaultMouseX;
+
+  const distanceCalc = useTransform(actualMouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
