@@ -21,15 +21,21 @@ import { UrlObject } from "url";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const [filter, setFilter] = useState<
-    "all" | "web" | "app" | "ui/ux" | "ml/dl"
-  >("all");
+  const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
 
-  const filteredProjects = DATA.projects.filter((p) => {
+  // Logika Filter Project
+  const filteredProjects = DATA.projects.filter((project) => {
+    // Cek apakah project berstatus active: true
+    // Jika active: false, langsung skip (tidak ditampilkan)
+    if (!project.active) {
+      return false;
+    }
+    // Jika active, baru cek kategorinya
     if (filter === "all") return true;
-    return p.category === filter;
+    return project.category === filter;
   });
 
+  // Definisi Variabel Delay Animasi
   const HERO_DELAY = BLUR_FADE_DELAY;
   const ABOUT_DELAY = BLUR_FADE_DELAY * 3;
   const SKILLS_DELAY = BLUR_FADE_DELAY * 5;
@@ -48,8 +54,7 @@ export default function Page() {
             <div className="justify-center flex-col flex flex-1 space-y-1.5">
               <BlurFade delay={HERO_DELAY}>
                 <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">
-                  Hi, I&apos;m {DATA.name}{" "}
-                  <span className="inline-block">👋</span>
+                  Hi, I&apos;m {DATA.name} <span className="inline-block">👋</span>
                 </p>
               </BlurFade>
               <BlurFade delay={HERO_DELAY + 0.05}>
@@ -106,7 +111,10 @@ export default function Page() {
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
-            <BlurFade key={work.company + id} delay={WORK_DELAY + id * 0.05}>
+            <BlurFade
+              key={work.company + id}
+              delay={WORK_DELAY + id * 0.05}
+            >
               <ResumeCard
                 logoUrl={work.logoUrl}
                 altText={work.company}
@@ -153,7 +161,7 @@ export default function Page() {
           <BlurFade delay={ACADEMIC_DELAY}>
             <h2 className="text-xl font-bold">Academic Experience</h2>
           </BlurFade>
-
+          
           {DATA.academicExperience.map((item, id) => (
             <BlurFade
               key={item.school + item.degree + id}
@@ -166,8 +174,8 @@ export default function Page() {
                 subtitle={item.degree}
                 href={item.href}
                 period={
-                  item.start === item.end
-                    ? item.start
+                  item.start === item.end 
+                    ? item.start 
                     : `${item.start} - ${item.end}`
                 }
                 location={item.location}
@@ -193,8 +201,7 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground text-sm/relaxed xl:text-base/relaxed">
-                  A showcase of my projects in Web Development, App Development,
-                  UI/UX, and ML/DL.
+                  A showcase of my projects in Web Development, App Development, UI/UX, and ML/DL.
                 </p>
               </div>
             </div>
@@ -216,9 +223,7 @@ export default function Page() {
                     <button
                       key={tab.value}
                       onClick={() =>
-                        setFilter(
-                          tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl"
-                        )
+                        setFilter(tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl")
                       }
                       className={
                         "px-3 py-1 text-xs sm:text-sm rounded-full transition-all duration-200 " +
@@ -300,7 +305,7 @@ export default function Page() {
                       .map(([name, social], index) => (
                         <Tooltip key={name + index}>
                           <TooltipTrigger asChild>
-                            <Link
+                            <Link 
                               href={social.url as unknown as UrlObject}
                               aria-label={`Visit my ${name} profile`}
                               className="text-foreground/60 hover:text-foreground transition-colors"
