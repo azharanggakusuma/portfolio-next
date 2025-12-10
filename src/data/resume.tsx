@@ -9,21 +9,21 @@ import {
   NotebookIcon,
   PencilLine,
 } from "lucide-react";
-import { 
-  SiJavascript, 
-  SiReact, 
-  SiNextdotjs, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiPhp, 
-  SiTailwindcss, 
-  SiPython, 
-  SiFlask, 
-  SiMysql, 
-  SiMongodb, 
-  SiGit, 
-  SiNpm, 
-  SiPostman 
+import {
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiPhp,
+  SiTailwindcss,
+  SiPython,
+  SiFlask,
+  SiMysql,
+  SiMongodb,
+  SiGit,
+  SiNpm,
+  SiPostman,
 } from "react-icons/si";
 
 export interface GalleryItem {
@@ -84,7 +84,7 @@ export const DATA = {
         contact: true,
         navbar: true,
       },
-      Instagram: { 
+      Instagram: {
         name: "Instagram",
         url: "https://instagram.com/azharangga_kusuma",
         icon: Icons.instagram,
@@ -153,7 +153,7 @@ export const DATA = {
       end: "Dec 2022",
       description:
         "* Developed interactive and responsive user interfaces using JavaScript frameworks such as Vue.js, React.js, and Node.js for dynamic frontend functionality. \n* Managed development workflows using Git version control, ensuring smooth collaboration and structured code review processes. \n* Enhanced UI design and consistency by implementing Bootstrap and Tailwind CSS to create modern and optimized layouts. \n* Learned and applied CI/CD practices using tools like Docker, improving development speed and deployment reliability. \n* Integrated various external APIs into web applications to support dynamic content and real-time data rendering. \n* Performed unit testing with Jest to validate functionality, maintain code quality, and detect issues early in the development cycle.",
-      },
+    },
     {
       company: "PT Bonet Utama",
       href: "https://bonet.co.id",
@@ -233,7 +233,8 @@ export const DATA = {
       location: "Buleleng, Bali, Indonesia",
       description:
         "Participated in the Merdeka Student Exchange Program (PMM) Batch 4, where I explored Balinese culture firsthand and engaged in cross-disciplinary courses that broadened my academic perspective beyond my primary field of study. This experience strengthened my adaptability, cultural awareness, and ability to learn in diverse academic environments.",
-      certificateUrl: "https://drive.google.com/file/d/1QMQLNO2X06SVBygIOdO5EJP4sYVj8Ez2/view?usp=sharing",
+      certificateUrl:
+        "https://drive.google.com/file/d/1QMQLNO2X06SVBygIOdO5EJP4sYVj8Ez2/view?usp=sharing",
       gallery: [
         {
           image: "/gallery/pmm-1.jpg",
@@ -258,12 +259,7 @@ export const DATA = {
       category: "web",
       description:
         "A web platform that provides access to academic data from PDDikti, enabling users to search and view information on students, lecturers, study programs, and higher education institutions. The system also supports detailed lookup for individual student and lecturer profiles.",
-      technologies: [
-        "React.js",
-        "Next.js",
-        "Leaflet.js",
-        "Tailwind CSS",
-      ],
+      technologies: ["React.js", "Next.js", "Leaflet.js", "Tailwind CSS"],
       links: [
         {
           type: "Website",
@@ -283,12 +279,7 @@ export const DATA = {
       category: "web",
       description:
         "A centralized web platform built for the local government of Kabupaten Cirebon to streamline village data collection, processing, and reporting, improving accessibility and supporting more efficient decision-making through a modern, user-friendly interface.",
-      technologies: [
-        "PHP",
-        "Bootstrap",
-        "MySQL",
-        "JavaScript",
-      ],
+      technologies: ["PHP", "Bootstrap", "MySQL", "JavaScript"],
       links: [
         {
           type: "Website",
@@ -300,6 +291,26 @@ export const DATA = {
       video: "",
     },
     {
+      title: "Material Inventory Information System",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: false,
+      category: "web",
+      description:
+        "A system for PT Denis Putra Jaya Elektrik, a partner of PT PLN (Persero), designed to digitize inventory recording and automatically generate receipts, replacing the previous manual process that was inefficient and prone to errors.",
+      technologies: ["PHP", "Bootstrap", "MySQL", "JavaScript"],
+      links: [
+        {
+          type: "Website",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/projects/inventori.png",
+      video: "",
+    },
+    {
       title: "SIPERJI - Library Management System",
       href: "",
       dates: "",
@@ -308,12 +319,7 @@ export const DATA = {
       category: "web",
       description:
         "A web-based system that allows students to browse available books, check book details, and manage borrowing activities efficiently.",
-      technologies: [
-        "PHP",
-        "Tailwind CSS",
-        "MySQL",
-        "JavaScript",
-      ],
+      technologies: ["PHP", "Tailwind CSS", "MySQL", "JavaScript"],
       links: [
         {
           type: "Website",
@@ -333,12 +339,7 @@ export const DATA = {
       category: "web",
       description:
         "A blog platform created to document group activities, reflections, and event highlights for the Modul Nusantara Drupadi team during the PMM 4 program at Universitas Pendidikan Ganesha.",
-      technologies: [
-        "PHP",
-        "Tailwind CSS",
-        "MySQL",
-        "JavaScript",
-      ],
+      technologies: ["PHP", "Tailwind CSS", "MySQL", "JavaScript"],
       links: [
         {
           type: "Website",
@@ -358,11 +359,7 @@ export const DATA = {
       category: "web",
       description:
         "A web application that allows users to browse, search, and view detailed movie information using real-time data from the TMDB API.",
-      technologies: [
-        "React.js",
-        "Tailwind CSS",
-        "TMDB API",
-      ],
+      technologies: ["React.js", "Tailwind CSS", "TMDB API"],
       links: [
         {
           type: "Website",
@@ -382,10 +379,7 @@ export const DATA = {
       category: "web",
       description:
         "A frontend UI slicing project that recreates a modern travel booking interface, focusing on clean layout structure, responsive design, and accurate visual implementation based on the original UI concept.",
-      technologies: [
-        "React.js",
-        "Tailwind CSS",
-      ],
+      technologies: ["React.js", "Tailwind CSS"],
       links: [
         {
           type: "Website",
