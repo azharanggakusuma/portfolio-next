@@ -307,7 +307,7 @@ export const DATA = {
     {
       school: "MikroTik",
       href: "https://mikrotik.com",
-      degree: "MikroTik Certified Network Associate (NTCNA)",
+      degree: "MikroTik Certified Network Associate (MTCNA)",
       logoUrl: "/academic/mikrotik.png",
       start: "Mar 2024",
       end: "Mar 2024",

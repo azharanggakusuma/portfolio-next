@@ -39,8 +39,9 @@ interface CertificateModalProps {
 
 // Helper untuk mengekstrak ID dari URL Google Drive
 function getGoogleDriveId(url: string) {
+  // PERBAIKAN: Menambahkan underscore (_) ke dalam regex agar ID dengan garis bawah terbaca
   const regex =
-    /(?:drive\.google\.com\/(?:file\/d\/|open\?id=)|docs\.google\.com\/file\/d\/)([-0-9a-zA-Z]+)/;
+    /(?:drive\.google\.com\/(?:file\/d\/|open\?id=)|docs\.google\.com\/file\/d\/)([-0-9a-zA-Z_]+)/;
   const match = url.match(regex);
   return match ? match[1] : null;
 }
@@ -58,6 +59,8 @@ export function CertificateModal({
 
   const driveId = getGoogleDriveId(href);
   const isPdf = href.toLowerCase().endsWith(".pdf");
+  
+  // Logic: Jika terdeteksi ID Drive, paksa pakai mode 'drive'
   const contentType = driveId ? "drive" : isPdf ? "pdf" : "image";
 
   const handleCopyLink = () => {
@@ -271,6 +274,7 @@ export function CertificateModal({
                 </div>
               )}
 
+              {/* PERBAIKAN: Jika driveId ada, otomatis pakai mode preview yang benar */}
               {driveId ? (
                 <iframe
                   src={`https://drive.google.com/file/d/${driveId}/preview`}
