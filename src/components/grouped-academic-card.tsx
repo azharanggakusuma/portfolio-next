@@ -35,6 +35,7 @@ export const GroupedAcademicCard = ({
 }: GroupedAcademicCardProps) => {
   const isGrouped = items.length > 1;
 
+  // --- RENDERING UNTUK SINGLE ITEM (1 Pelatihan) ---
   if (!isGrouped) {
     const item = items[0];
     return (
@@ -60,14 +61,17 @@ export const GroupedAcademicCard = ({
                 : `${item.start} - ${item.end}`}
             </div>
           </div>
+          
           <div className="font-sans text-xs mt-1 font-medium">
             {item.degree}
           </div>
+          
           {item.location && (
             <div className="font-sans text-xs mt-1 text-muted-foreground">
               {item.location}
             </div>
           )}
+          
           <div className="mt-2 text-xs sm:text-sm">
             {item.description && (
               <Markdown className="prose max-w-full text-pretty font-sans text-sm dark:prose-invert">
@@ -81,6 +85,7 @@ export const GroupedAcademicCard = ({
     );
   }
 
+  // --- RENDERING UNTUK GROUPED ITEM (Banyak Pelatihan) ---
   return (
     <div className="flex gap-4">
       <div className="flex-none w-12 flex flex-col items-center">
@@ -92,7 +97,7 @@ export const GroupedAcademicCard = ({
 
       <div className="flex flex-col flex-grow">
         <div className="mb-4 h-12 flex items-center">
-          <h3 className="font-semibold text-sm sm:text-base">{school}</h3>
+          <h3 className="font-semibold text-xs sm:text-sm">{school}</h3>
         </div>
 
         <div className="flex flex-col">
@@ -124,7 +129,7 @@ export const GroupedAcademicCard = ({
 
                 <div className="flex flex-col">
                   <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h4 className="font-medium text-xs sm:text-sm leading-none">
+                    <h4 className="font-medium text-xs leading-none">
                       {item.degree}
                     </h4>
                     <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right shrink-0">
@@ -140,6 +145,7 @@ export const GroupedAcademicCard = ({
                     </div>
                   )}
 
+                  {/* Description: text-sm */}
                   <div className="mt-2 text-xs sm:text-sm">
                     {item.description && (
                       <Markdown className="prose max-w-full text-pretty font-sans text-sm dark:prose-invert">
