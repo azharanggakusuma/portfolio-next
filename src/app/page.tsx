@@ -7,6 +7,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { EducationCard } from "@/components/education-card";
 import { AcademicCard } from "@/components/academic-card";
+import { GroupedAcademicCard } from "@/components/grouped-academic-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -24,7 +25,9 @@ import { UrlObject } from "url";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
+  const [filter, setFilter] = useState<
+    "all" | "web" | "app" | "ui/ux" | "ml/dl"
+  >("all");
 
   // Logika Filter
   const filteredProjects = DATA.projects.filter((project) => {
@@ -42,6 +45,30 @@ export default function Page() {
   const PROJECTS_DELAY = BLUR_FADE_DELAY * 13;
   const CONTACT_DELAY = BLUR_FADE_DELAY * 15;
 
+  // LOGIC PENGELOMPOKAN DATA (Grouping)
+  const groupedTrainings = DATA.trainings.reduce(
+    (acc, item) => {
+      const existingGroup = acc.find((group) => group.school === item.school);
+      if (existingGroup) {
+        existingGroup.items.push(item);
+      } else {
+        acc.push({
+          school: item.school,
+          logoUrl: item.logoUrl,
+          href: item.href,
+          items: [item],
+        });
+      }
+      return acc;
+    },
+    [] as Array<{
+      school: string;
+      logoUrl: string;
+      href: string;
+      items: (typeof DATA.trainings)[number][];
+    }>
+  );
+
   return (
     <main className="flex flex-col min-h-[100dvh]">
       {/* --- HERO SECTION --- */}
@@ -51,7 +78,8 @@ export default function Page() {
             <div className="justify-center flex-col flex flex-1 space-y-1.5">
               <BlurFade delay={HERO_DELAY}>
                 <p className="mx-auto md:mx-0 text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none">
-                  Hi, I&apos;m {DATA.name} <span className="inline-block">👋</span>
+                  Hi, I&apos;m {DATA.name}{" "}
+                  <span className="inline-block">👋</span>
                 </p>
               </BlurFade>
               <BlurFade delay={HERO_DELAY + 0.05}>
@@ -59,13 +87,16 @@ export default function Page() {
                   {DATA.description}
                 </Markdown>
               </BlurFade>
-              
+
               {/* TOMBOL ACTION */}
               <BlurFade delay={HERO_DELAY + 0.1}>
                 <div className="flex gap-2 justify-center md:justify-start mt-4">
                   <Link
                     href="#contact"
-                    className={cn(buttonVariants({ variant: "default" }), "w-full sm:w-auto flex items-center gap-2")}
+                    className={cn(
+                      buttonVariants({ variant: "default" }),
+                      "w-full sm:w-auto flex items-center gap-2"
+                    )}
                   >
                     <Mail className="size-4" />
                     Contact Me
@@ -73,14 +104,16 @@ export default function Page() {
                   <Link
                     href="/resume.pdf"
                     target="_blank"
-                    className={cn(buttonVariants({ variant: "outline" }), "w-full sm:w-auto flex items-center gap-2")}
+                    className={cn(
+                      buttonVariants({ variant: "outline" }),
+                      "w-full sm:w-auto flex items-center gap-2"
+                    )}
                   >
                     <FileText className="size-4" />
                     Download CV
                   </Link>
                 </div>
               </BlurFade>
-
             </div>
             <BlurFade delay={HERO_DELAY}>
               <Avatar className="size-36 mx-auto">
@@ -130,10 +163,7 @@ export default function Page() {
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company + id}
-              delay={WORK_DELAY + id * 0.05}
-            >
+            <BlurFade key={work.company + id} delay={WORK_DELAY + id * 0.05}>
               <ResumeCard
                 logoUrl={work.logoUrl}
                 altText={work.company}
@@ -180,7 +210,7 @@ export default function Page() {
           <BlurFade delay={ACADEMIC_DELAY}>
             <h2 className="text-xl font-bold">Academic Experience</h2>
           </BlurFade>
-          
+
           {DATA.academicExperience.map((item, id) => (
             <BlurFade
               key={item.school + item.degree + id}
@@ -193,8 +223,8 @@ export default function Page() {
                 subtitle={item.degree}
                 href={item.href}
                 period={
-                  item.start === item.end 
-                    ? item.start 
+                  item.start === item.end
+                    ? item.start
                     : `${item.start} - ${item.end}`
                 }
                 location={item.location}
@@ -213,27 +243,17 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 12}>
             <h2 className="text-xl font-bold">Training & Certifications</h2>
           </BlurFade>
-          
-          {DATA.trainings.map((item, id) => (
+
+          {groupedTrainings.map((group, id) => (
             <BlurFade
-              key={item.school + item.degree + id}
+              key={group.school + id}
               delay={BLUR_FADE_DELAY * 12 + id * 0.05}
             >
-              <AcademicCard
-                logoUrl={item.logoUrl}
-                altText={item.school}
-                title={item.school}       
-                subtitle={item.degree}  
-                href={item.href}
-                period={
-                  item.start === item.end 
-                    ? item.start 
-                    : `${item.start} - ${item.end}`
-                }
-                location={item.location}
-                description={item.description}
-                certificateUrl={item.certificateUrl} 
-                gallery={item.gallery}             
+              <GroupedAcademicCard
+                school={group.school}
+                logoUrl={group.logoUrl}
+                href={group.href}
+                items={group.items}
               />
             </BlurFade>
           ))}
@@ -253,7 +273,8 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground text-sm/relaxed xl:text-base/relaxed">
-                  A showcase of my projects in Web Development, App Development, UI/UX, and ML/DL.
+                  A showcase of my projects in Web Development, App Development,
+                  UI/UX, and ML/DL.
                 </p>
               </div>
             </div>
@@ -275,7 +296,9 @@ export default function Page() {
                     <button
                       key={tab.value}
                       onClick={() =>
-                        setFilter(tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl")
+                        setFilter(
+                          tab.value as "all" | "web" | "app" | "ui/ux" | "ml/dl"
+                        )
                       }
                       className={
                         "px-3 py-1 text-xs sm:text-sm rounded-full transition-all duration-200 " +
@@ -357,7 +380,7 @@ export default function Page() {
                       .map(([name, social], index) => (
                         <Tooltip key={name + index}>
                           <TooltipTrigger asChild>
-                            <Link 
+                            <Link
                               href={social.url as unknown as UrlObject}
                               aria-label={`Visit my ${name} profile`}
                               className="text-foreground/60 hover:text-foreground transition-colors"
