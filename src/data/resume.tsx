@@ -213,7 +213,7 @@ export const DATA = {
       location: "Batam, Riau Islands, Indonesia",
       description:
         "Presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the 9th National Seminar on Information Systems and Technology (SISFOTEK), organized by the Indonesian Informatics Experts Association (IAII). The study evaluated the performance of lightweight deep learning models for early disease detection.",
-      certificateUrl: "https://example.com/certificate-sisfotek",
+      certificateUrl: "https://drive.google.com/file/d/1weW0nyCKE1mPRdOXhjE5OfNm2A4_TnbM/view?usp=sharing",
       gallery: [
         {
           image: "/gallery/sisfotek-1.jpg",
@@ -251,16 +251,16 @@ export const DATA = {
   ],
   trainings: [
     {
-      school: "Dicoding Indonesia", 
+      school: "Dicoding Indonesia",
       href: "https://www.dicoding.com",
       degree: "Belajar Dasar Pemrograman Web",
-      logoUrl: "/path/to/dicoding-logo.png", 
+      logoUrl: "/academic/dicoding.png",
       start: "Jan 2024",
       end: "Feb 2024",
       location: "Online",
       description:
-        "Mempelajari dasar-dasar HTML, CSS, dan JavaScript untuk membangun website yang responsif.",
-      certificateUrl: "https://dicoding.com/certificates/...", 
+        ".....",
+      certificateUrl: "https://dicoding.com/certificates/...",
       gallery: [
         {
           image: "/gallery/training-1.jpg",
@@ -269,16 +269,16 @@ export const DATA = {
       ],
     },
     {
-      school: "Dicoding Indonesia", 
+      school: "Dicoding Indonesia",
       href: "https://www.dicoding.com",
       degree: "Belajar Dasar Pemrograman Web",
-      logoUrl: "/path/to/dicoding-logo.png", 
+      logoUrl: "/academic/dicoding.png",
       start: "Jan 2024",
       end: "Feb 2024",
       location: "Online",
       description:
-        "Mempelajari dasar-dasar HTML, CSS, dan JavaScript untuk membangun website yang responsif.",
-      certificateUrl: "https://dicoding.com/certificates/...", 
+        ".....",
+      certificateUrl: "https://dicoding.com/certificates/...",
       gallery: [
         {
           image: "/gallery/training-1.jpg",
@@ -290,12 +290,12 @@ export const DATA = {
       school: "Coursera",
       href: "https://coursera.org",
       degree: "Google IT Support Professional Certificate",
-      logoUrl: "/path/to/coursera-logo.png",
+      logoUrl: "/academic/coursera.png",
       start: "Mar 2024",
       end: "Mar 2024",
       location: "Online",
       description:
-        "Menyelesaikan rangkaian kursus mengenai troubleshooting, jaringan komputer, dan keamanan sistem.",
+        ".....",
       certificateUrl: "https://coursera.org/verify/...",
       gallery: [
         {
@@ -305,16 +305,16 @@ export const DATA = {
       ],
     },
     {
-      school: "Dicoding Indonesia",
-      href: "https://coursera.org",
-      degree: "Google IT Support Professional Certificate",
-      logoUrl: "/path/to/coursera-logo.png",
+      school: "MikroTik",
+      href: "https://mikrotik.com",
+      degree: "MikroTik Certified Network Associate (NTCNA)",
+      logoUrl: "/academic/mikrotik.png",
       start: "Mar 2024",
       end: "Mar 2024",
       location: "Online",
       description:
-        "Menyelesaikan rangkaian kursus mengenai troubleshooting, jaringan komputer, dan keamanan sistem.",
-      certificateUrl: "https://coursera.org/verify/...",
+        ".....",
+      certificateUrl: "https://mikrotik.com/certificateSearch",
       gallery: [
         {
           image: "/gallery/training-2.jpg",

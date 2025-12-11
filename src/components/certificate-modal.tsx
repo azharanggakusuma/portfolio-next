@@ -273,7 +273,7 @@ export function CertificateModal({
 
               {driveId ? (
                 <iframe
-                  src={`https://drive.google.com/file/d/${driveId}/preview?rm=minimal`}
+                  src={`https://drive.google.com/file/d/${driveId}/preview`}
                   className="w-full h-full border-none"
                   title={alt}
                   allow="autoplay"
