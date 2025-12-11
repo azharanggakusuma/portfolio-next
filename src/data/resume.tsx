@@ -207,7 +207,7 @@ export const DATA = {
       logoUrl: "/academic/sisfotek.png",
       start: "14 Sep 2024",
       end: "14 Sep 2024",
-      location: "Batam, Riau Islands, Indonesia",
+      location: "Online",
       description:
         "Presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the 9th National Seminar on Information Systems and Technology (SISFOTEK), organized by the Indonesian Informatics Experts Association (IAII). The study evaluated the performance of lightweight deep learning models for early disease detection.",
       certificateUrl: "https://drive.google.com/file/d/1weW0nyCKE1mPRdOXhjE5OfNm2A4_TnbM/view?usp=sharing",
@@ -256,7 +256,7 @@ export const DATA = {
       end: "Dec 2023",
       location: "Online",
       description:
-        "Participated in the SMKDEV Bootcamp Scholarship program, focusing on frontend development skills including HTML, CSS, JavaScript, and modern frameworks.",
+        "Completed an intensive Frontend Developer bootcamp scholarship, focusing on modern web development using Tailwind, React, and Next.js. Learned best practices in building responsive, accessible, and component-based user interfaces through live classes, coding challenges, and project-based learning.",
       certificateUrl: "https://drive.google.com/file/d/1XFUFx76mido9CNErfO3jY3GJocxp0IV8/view?usp=sharing",
       gallery: [
         {
@@ -280,7 +280,7 @@ export const DATA = {
       end: "Sep 2023",
       location: "Online",
       description:
-        "Completed the Ready4Security-Indonesia Training program, focusing on cybersecurity fundamentals and best practices.",
+        "Completed the Ready4Security Indonesia training program, gaining foundational knowledge in cybersecurity, including threat identification, secure practices, and risk prevention. Participated in hands-on sessions designed to build awareness and essential security skills.",
       certificateUrl: "https://drive.google.com/file/d/1yXBXOojBZi1ccsGEuIGR8HpB37PuV63C/view?usp=sharing",
       gallery: [],
     },
