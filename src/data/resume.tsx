@@ -2,12 +2,9 @@ import { Icons } from "@/components/icons";
 import {
   BriefcaseBusiness,
   CodeIcon,
-  Globe,
   GlobeIcon,
   GraduationCap,
   HomeIcon,
-  NotebookIcon,
-  PencilLine,
 } from "lucide-react";
 import {
   SiJavascript,
@@ -217,8 +214,8 @@ export const DATA = {
       gallery: [
         {
           image: "/gallery/sisfotek-1.jpg",
-          caption: "Sesi presentasi jurnal penelitian",
-          location: "Ruang Seminar Utama",
+          caption: "Research paper presentation session",
+          location: "Main Seminar Room",
         },
       ],
     },
@@ -238,12 +235,12 @@ export const DATA = {
       gallery: [
         {
           image: "/gallery/pmm-1.jpg",
-          caption: "Presentasi budaya lokal Cirebon",
-          location: "Aula Kampus Undiksha",
+          caption: "Cirebon local culture presentation",
+          location: "Undiksha Campus Hall",
         },
         {
           image: "/gallery/pmm-2.jpg",
-          caption: "Kunjungan budaya ke Desa Penglipuran",
+          caption: "Cultural visit to Penglipuran Village",
           location: "Bangli, Bali",
         },
       ],
@@ -264,12 +261,12 @@ export const DATA = {
       gallery: [
         {
           image: "/gallery/smkdev-1.jpg",
-          caption: "Live Class Frontend Developer",
+          caption: "Frontend Developer Live Class",
           location: "Google Meet",
         },
         {
           image: "/gallery/smkdev-2.jpg",
-          caption: "Live Class Frontend Developer",
+          caption: "Frontend Developer Live Class",
           location: "Google Meet",
         },
       ],
@@ -296,23 +293,23 @@ export const DATA = {
       end: "Sep 2023",
       location: "Universitas Kuningan",
       description:
-        ".....",
+        "Completed the Vocational School Graduate Academy (VSGA) training based on the Indonesian National Work Competency Standards (SKKNI). Gained practical skills in configuring network devices, designing IP addressing schemes, setting up wireless networks, and managing routing and switching systems.",
       certificateUrl: "https://drive.google.com/file/d/1G9PUCoHE7G5I6qo5SYBHGKgcwR7-GHOK/view?usp=sharing",
       gallery: [
         {
           image: "/gallery/jna-1.jpg",
-          caption: "Proses Asssessment",
-          location: "Kampus 2 UNIKU Fakultas Ilmu Komputer",
+          caption: "Assessment Process",
+          location: "UNIKU Campus 2, Faculty of Computer Science",
         },
         {
           image: "/gallery/jna-2.jpg",
-          caption: "Pengumuman Hasil Asssessment",
-          location: "Kampus 2 UNIKU Fakultas Ilmu Komputer",
+          caption: "Assessment Result Announcement",
+          location: "UNIKU Campus 2, Faculty of Computer Science",
         },
         {
           image: "/gallery/jna-3.jpg",
-          caption: "Sesi Photo Bersama",
-          location: "Kampus 2 UNIKU Fakultas Ilmu Komputer",
+          caption: "Group Photo Session",
+          location: "UNIKU Campus 2, Faculty of Computer Science",
         },
       ],
     },
@@ -325,17 +322,17 @@ export const DATA = {
       end: "Jul 2023",
       location: "Online",
       description:
-        ".....",
+        "Completed the VSGA training program for Junior Web Developers based on SKKNI standards. Acquired competencies in building and managing web applications using HTML, CSS, and PHP, including database management with MySQL and implementation of responsive user interfaces.",
       certificateUrl: "https://drive.google.com/file/d/1ylMMcHt1R3M5cm2-1Go-hZsanNgWvff8/view?usp=sharing",
       gallery: [
         {
           image: "/gallery/jwd-1.jpg",
-          caption: "Proses Asssessment",
+          caption: "Assessment Process",
           location: "Zoom Meeting",
         },
         {
           image: "/gallery/jwd-2.jpg",
-          caption: "Pengumuman Hasil Asssessment",
+          caption: "Assessment Result Announcement",
           location: "Zoom Meeting",
         },
       ],
@@ -369,52 +366,52 @@ export const DATA = {
     {
       school: "Dicoding Indonesia",
       href: "https://www.dicoding.com",
-      degree: "Belajar Membuat Aplikasi Web dengan React",
+      degree: "Learn to Build Web Apps with React",
       logoUrl: "/academic/dicoding.png",
       start: "03 Oct 2023",
       end: "03 Oct 2023",
       location: "Online",
       description:
-        "Mempelajari kemampuan dasar dalam membuat aplikasi React seperti element, component, props, event handling, dan state.",
+        "Learned basic capabilities in building React applications such as elements, components, props, event handling, and state management.",
       certificateUrl: "https://drive.google.com/file/d/1t9jgdY8s3WF0wrPmnOudcCYukJPy7Tzq/view?usp=sharing",
       gallery: [],
     },
     {
       school: "Dicoding Indonesia",
       href: "https://www.dicoding.com",
-      degree: "Belajar Dasar Pemrograman Web",
+      degree: "Learn Basic Web Programming",
       logoUrl: "/academic/dicoding.png",
       start: "02 Oct 2023",
       end: "02 Oct 2023",
       location: "Online",
       description:
-        "Mempelajari materi mengenai DOM manipulation, Event, dan Web Storage untuk meningkatkan fungsionalitas dan interaktifitas pada website.",
+        "Learned about DOM manipulation, Events, and Web Storage to improve website functionality and interactivity.",
       certificateUrl: "https://drive.google.com/file/d/1lszNiW-flv9j1J7Ikr2S56E_KA55NatB/view?usp=sharing",
       gallery: [],
     },
     {
       school: "Dicoding Indonesia",
       href: "https://www.dicoding.com",
-      degree: "Belajar Dasar Pemrograman JavaScript",
+      degree: "Learn Basic JavaScript Programming",
       logoUrl: "/academic/dicoding.png",
       start: "01 Oct 2023",
       end: "01 Oct 2023",
       location: "Online",
       description:
-        "Mempelajari dasar JavaScript, dari fundamental, sintaks dan fitur ES6, hingga konsep automation test menggunakan framework populer.",
+        "Learned JavaScript basics, from fundamentals, syntax and ES6 features, to automation test concepts using popular frameworks.",
       certificateUrl: "https://drive.google.com/file/d/1htoZS4zKasdRL6GMhkCcVZI_kt7P_riM/view?usp=sharing",
       gallery: [],
     },
     {
       school: "Dicoding Indonesia",
       href: "https://www.dicoding.com",
-      degree: "Belajar Dasar Structured Query Language (SQL)",
+      degree: "Learn Basic Structured Query Language (SQL)",
       logoUrl: "/academic/dicoding.png",
       start: "03 Jun 2023",
       end: "03 Jun 2023",
       location: "Online",
       description:
-        "Mempelajari berbagai konsep dasar structured query language (SQL) mulai dari pengenalan data dan basis data hingga berlatih basic query.",
+        "Learned various basic concepts of Structured Query Language (SQL) starting from data and database introduction to practicing basic queries.",
       certificateUrl: "https://drive.google.com/file/d/1xkn6K_sEj7XfLmK5Nop8zeMwImsHYliz/view?usp=sharing",
       gallery: [],
     },
@@ -440,7 +437,7 @@ export const DATA = {
       end: "20 Jul 2019",
       location: "Cirebon, West Java, Indonesia",
       description:
-        "Mempelajari konsep dasar jaringan komputer serta konfigurasi dan manajemen perangkat MikroTik RouterOS untuk kebutuhan jaringan skala kecil hingga menengah.",
+        "Learned basic computer network concepts as well as configuration and management of MikroTik RouterOS devices for small to medium scale network needs.",
       certificateUrl: "https://drive.google.com/file/d/1GpEi-J-VaEIUDzVRLGS6piTFTuu4pAzw/view?usp=sharing",
       gallery: [],
     },
