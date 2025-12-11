@@ -200,16 +200,16 @@ export const DATA = {
   ],
   academicExperience: [
     {
-      school: "National Seminar on SISFOTEK",
+      school: "Ikatan Ahli informatika Indonesia Nusantara (IAII)",
       href: "https://sisfotek.org",
-      degree: "Presenter",
+      degree: "9th National Seminar on Information Systems and Technology (SISFOTEK)",
       icon: false,
       logoUrl: "/academic/sisfotek.png",
       start: "14 Sep 2024",
       end: "14 Sep 2024",
       location: "Online",
       description:
-        "Presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the 9th National Seminar on Information Systems and Technology (SISFOTEK), organized by the Indonesian Informatics Experts Association (IAII). The study evaluated the performance of lightweight deep learning models for early disease detection.",
+        "Presented a research paper titled 'Comparative Analysis of Rice Leaf Disease Classification Models Based on MobileNetV2' at the 9th National Seminar on Information Systems and Technology (SISFOTEK), organized by Ikatan Ahli informatika Indonesia Nusantara (IAII). The study evaluated the performance of lightweight deep learning models for early disease detection.",
       certificateUrl: "https://drive.google.com/file/d/1weW0nyCKE1mPRdOXhjE5OfNm2A4_TnbM/view?usp=sharing",
       gallery: [
         {
@@ -244,6 +244,20 @@ export const DATA = {
           location: "Bangli, Bali",
         },
       ],
+    },
+    {
+      school: "Sejutacita Indonesia",
+      href: "https://sejutacita.id/fmbpi",
+      degree: "Indonesian New Student & Youth Festival 2021",
+      icon: false,
+      logoUrl: "/academic/sejutacita.jpg",
+      start: "27 Aug 2021",
+      end: "29 Aug 2021",
+      location: "Online",
+      description:
+        "Participated in the Indonesian New Student & Youth Festival 2021 (FMBPI), a free online talk show organized by Sejutacita Indonesia. The event aimed to provide insights and inspiration for new university students and high school students across Indonesia through a series of engaging sessions led by expert speakers.",
+      certificateUrl: "",
+      gallery: [],
     },
   ],
   trainings: [
@@ -426,6 +440,19 @@ export const DATA = {
       description:
         ".....",
       certificateUrl: "",
+      gallery: [],
+    },
+    {
+      school: "International CyberSecurity Institute (ICSI)",
+      href: "https://icsihellas.gr",
+      degree: "CNSS Certified Network Security Specialist",
+      logoUrl: "/academic/icsi.png",
+      start: "22 May 2020",
+      end: "22 May 2020",
+      location: "Online",
+      description:
+        "Earned the CNSS (Certified Network Security Specialist) certification, covering core cybersecurity principles including network security fundamentals, threat analysis, encryption, security controls, and incident response. Gained a strong foundation in identifying risks and implementing effective protection measures.",
+      certificateUrl: "https://drive.google.com/file/d/1X9pASlMFshWLyFzip9vSTmHsdnnP5B1T/view?usp=sharing",
       gallery: [],
     },
     {
