@@ -207,6 +207,39 @@ export default function Page() {
         </div>
       </section>
 
+      {/* --- TRAINING & CERTIFICATES SECTION --- */}
+      <section id="certifications" className="pt-6">
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+            <h2 className="text-xl font-bold">Training & Certifications</h2>
+          </BlurFade>
+          
+          {DATA.trainings.map((item, id) => (
+            <BlurFade
+              key={item.school + item.degree + id}
+              delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+            >
+              <AcademicCard
+                logoUrl={item.logoUrl}
+                altText={item.school}
+                title={item.school}       
+                subtitle={item.degree}  
+                href={item.href}
+                period={
+                  item.start === item.end 
+                    ? item.start 
+                    : `${item.start} - ${item.end}`
+                }
+                location={item.location}
+                description={item.description}
+                certificateUrl={item.certificateUrl} 
+                gallery={item.gallery}             
+              />
+            </BlurFade>
+          ))}
+        </div>
+      </section>
+
       {/* --- PROJECTS SECTION --- */}
       <section id="projects" className="pt-6">
         <div className="space-y-8 w-full">

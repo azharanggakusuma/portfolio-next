@@ -249,6 +249,44 @@ export const DATA = {
       ],
     },
   ],
+  trainings: [
+    {
+      school: "Dicoding Indonesia", 
+      href: "https://www.dicoding.com",
+      degree: "Belajar Dasar Pemrograman Web",
+      logoUrl: "/path/to/dicoding-logo.png", 
+      start: "Jan 2024",
+      end: "Feb 2024",
+      location: "Online",
+      description:
+        "Mempelajari dasar-dasar HTML, CSS, dan JavaScript untuk membangun website yang responsif.",
+      certificateUrl: "https://dicoding.com/certificates/...", 
+      gallery: [
+        {
+          image: "/gallery/training-1.jpg",
+          caption: "Sesi mentoring online.",
+        },
+      ],
+    },
+    {
+      school: "Coursera",
+      href: "https://coursera.org",
+      degree: "Google IT Support Professional Certificate",
+      logoUrl: "/path/to/coursera-logo.png",
+      start: "Mar 2024",
+      end: "Mar 2024",
+      location: "Online",
+      description:
+        "Menyelesaikan rangkaian kursus mengenai troubleshooting, jaringan komputer, dan keamanan sistem.",
+      certificateUrl: "https://coursera.org/verify/...",
+      gallery: [
+        {
+          image: "/gallery/training-2.jpg",
+          caption: "Sesi mentoring online.",
+        },
+      ],
+    },
+  ],
   projects: [
     {
       title: "DataDikti",
@@ -267,7 +305,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link untuk proyek Open Source
           type: "Source",
           href: "https://github.com/azharanggakusuma/datadikti",
           icon: <Icons.github className="size-3" />,
