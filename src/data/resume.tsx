@@ -765,7 +765,7 @@ export const DATA = {
 
     // --- Kategori UI/UX ---
     {
-      title: "Lorem Ipsum",
+      title: "UI Design Prototype UBoost",
       href: "",
       dates: "",
       active: true,
@@ -776,21 +776,16 @@ export const DATA = {
       technologies: ["Figma", "Auto Layout", "Prototyping", "Whimsical"],
       links: [
         {
-          type: "Website",
+          type: "Prototype",
           href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
+          icon: <Icons.figma className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
+      image: "/projects/uboost.png",
       video: "",
     },
     {
-      title: "Lorem Ipsum",
+      title: "UI Design Prototype Niagahoster",
       href: "",
       dates: "",
       active: true,
@@ -801,17 +796,12 @@ export const DATA = {
       technologies: ["Figma", "UI Kits", "Wireframing", "User Flow"],
       links: [
         {
-          type: "Website",
+          type: "Prototype",
           href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
+          icon: <Icons.figma className="size-3" />,
         },
       ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
+      image: "/projects/niagahoster.png",
       video: "",
     },
     // --- Kategori ML/DL ---
