@@ -217,7 +217,7 @@ export const DATA = {
       gallery: [
         {
           image: "/gallery/sisfotek-1.jpg",
-          caption: "Sesi presentasi jurnal penelitian.",
+          caption: "Sesi presentasi jurnal penelitian",
           location: "Ruang Seminar Utama",
         },
       ],
@@ -238,12 +238,12 @@ export const DATA = {
       gallery: [
         {
           image: "/gallery/pmm-1.jpg",
-          caption: "Presentasi budaya lokal Cirebon.",
+          caption: "Presentasi budaya lokal Cirebon",
           location: "Aula Kampus Undiksha",
         },
         {
           image: "/gallery/pmm-2.jpg",
-          caption: "Kunjungan budaya ke Desa Penglipuran.",
+          caption: "Kunjungan budaya ke Desa Penglipuran",
           location: "Bangli, Bali",
         },
       ],
@@ -261,7 +261,18 @@ export const DATA = {
       description:
         "Participated in the SMKDEV Bootcamp Scholarship program, focusing on frontend development skills including HTML, CSS, JavaScript, and modern frameworks.",
       certificateUrl: "https://drive.google.com/file/d/1XFUFx76mido9CNErfO3jY3GJocxp0IV8/view?usp=sharing",
-      gallery: [],
+      gallery: [
+        {
+          image: "/gallery/smkdev-1.jpg",
+          caption: "Live Class Frontend Developer",
+          location: "Google Meet",
+        },
+        {
+          image: "/gallery/smkdev-2.jpg",
+          caption: "Live Class Frontend Developer",
+          location: "Google Meet",
+        },
+      ],
     },
     {
       school: "Infra Digital Foundation",
@@ -279,28 +290,55 @@ export const DATA = {
     {
       school: "Digital Talent Scholarship",
       href: "",
-      degree: "VSGA - Junior Web Developer",
+      degree: "VSGA - Junior Network Administrator",
       logoUrl: "/academic/digitalent2.png",
-      start: "14 Oct 2023",
-      end: "14 Oct 2023",
-      location: "Online",
+      start: "Sep 2023",
+      end: "Sep 2023",
+      location: "Universitas Kuningan",
       description:
         ".....",
-      certificateUrl: "",
-      gallery: [],
+      certificateUrl: "https://drive.google.com/file/d/1G9PUCoHE7G5I6qo5SYBHGKgcwR7-GHOK/view?usp=sharing",
+      gallery: [
+        {
+          image: "/gallery/jna-1.jpg",
+          caption: "Proses Asssessment",
+          location: "Kampus 2 UNIKU Fakultas Ilmu Komputer",
+        },
+        {
+          image: "/gallery/jna-2.jpg",
+          caption: "Pengumuman Hasil Asssessment",
+          location: "Kampus 2 UNIKU Fakultas Ilmu Komputer",
+        },
+        {
+          image: "/gallery/jna-3.jpg",
+          caption: "Sesi Photo Bersama",
+          location: "Kampus 2 UNIKU Fakultas Ilmu Komputer",
+        },
+      ],
     },
     {
       school: "Digital Talent Scholarship",
       href: "",
-      degree: "VSGA - Junior Network Administrator",
+      degree: "VSGA - Junior Web Developer",
       logoUrl: "/academic/digitalent2.png",
-      start: "14 Oct 2023",
-      end: "14 Oct 2023",
+      start: "Jun 2023",
+      end: "Jul 2023",
       location: "Online",
       description:
         ".....",
-      certificateUrl: "",
-      gallery: [],
+      certificateUrl: "https://drive.google.com/file/d/1ylMMcHt1R3M5cm2-1Go-hZsanNgWvff8/view?usp=sharing",
+      gallery: [
+        {
+          image: "/gallery/jwd-1.jpg",
+          caption: "Proses Asssessment",
+          location: "Zoom Meeting",
+        },
+        {
+          image: "/gallery/jwd-2.jpg",
+          caption: "Pengumuman Hasil Asssessment",
+          location: "Zoom Meeting",
+        },
+      ],
     },
     {
       school: "Coursera",
@@ -404,12 +442,7 @@ export const DATA = {
       description:
         "Mempelajari konsep dasar jaringan komputer serta konfigurasi dan manajemen perangkat MikroTik RouterOS untuk kebutuhan jaringan skala kecil hingga menengah.",
       certificateUrl: "https://drive.google.com/file/d/1GpEi-J-VaEIUDzVRLGS6piTFTuu4pAzw/view?usp=sharing",
-      gallery: [
-        {
-          image: "/gallery/training-2.jpg",
-          caption: "Sesi mentoring online.",
-        },
-      ],
+      gallery: [],
     },
   ],
   projects: [
