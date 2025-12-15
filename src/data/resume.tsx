@@ -811,7 +811,7 @@ export const DATA = {
       href: "",
       dates: "",
       active: true,
-      openSource: false,
+      openSource: true,
       category: "ui/ux",
       description:
         "Designed a high-fidelity UI prototype for UBoost, focusing on clear user flows, consistent layout structure, and responsive components. The prototype emphasizes usability and visual clarity through well-structured auto layout and interactive elements.",
