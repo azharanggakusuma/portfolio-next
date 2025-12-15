@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { PrototypeDialog } from "@/components/prototype-dialog"; // Import komponen baru
 
 interface Props {
   title: string;
@@ -122,10 +123,8 @@ export function ProjectCard({
 
       {/* LINKS */}
       <CardFooter className="px-2 pb-2">
-        {/* Menggunakan gap-2 agar jarak tombol lebih longgar */}
         <div className="flex flex-wrap gap-2">
           {links?.map((link, idx) => {
-            // Hanya disable jika link href-nya kosong
             const disabled = !link.href;
 
             if (disabled) {
@@ -137,6 +136,17 @@ export function ProjectCard({
                   {link.icon}
                   {link.type}
                 </Badge>
+              );
+            }
+
+            if (link.type === "Prototype") {
+              return (
+                <PrototypeDialog
+                  key={idx}
+                  href={link.href}
+                  label={link.type}
+                  icon={link.icon}
+                />
               );
             }
 
