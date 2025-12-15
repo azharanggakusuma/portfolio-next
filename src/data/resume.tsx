@@ -665,7 +665,7 @@ export const DATA = {
       video: "",
     },
     {
-      title: "OpenTrip – Travel Website",
+      title: "OpenTrip - Travel Website",
       href: "https://2-three-pi.vercel.app",
       dates: "",
       active: true,
