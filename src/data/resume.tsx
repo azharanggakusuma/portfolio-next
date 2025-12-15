@@ -245,7 +245,7 @@ export const DATA = {
         },
       ],
     },
-    {
+    /*{
       school: "Sejutacita Indonesia",
       href: "https://sejutacita.id/fmbpi",
       degree: "Indonesian New Student & Youth Festival 2021",
@@ -258,7 +258,7 @@ export const DATA = {
         "Participated in the Indonesian New Student & Youth Festival 2021 (FMBPI), a free online talk show organized by Sejutacita Indonesia. The event aimed to provide insights and inspiration for new university students and high school students across Indonesia through a series of engaging sessions led by expert speakers.",
       certificateUrl: "",
       gallery: [],
-    },
+    },*/
   ],
   trainings: [
     {
@@ -612,7 +612,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link untuk proyek Open Source
           type: "Source",
           href: "https://github.com/azharanggakusuma/movie-app",
           icon: <Icons.github className="size-3" />,
@@ -638,7 +637,6 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
         {
-          // Source link untuk proyek Open Source
           type: "Source",
           href: "https://github.com/azharanggakusuma/opentrip",
           icon: <Icons.github className="size-3" />,
