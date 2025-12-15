@@ -510,7 +510,23 @@ export const DATA = {
       description:
         "Learned basic computer network concepts as well as configuration and management of MikroTik RouterOS devices for small to medium scale network needs.",
       certificateUrl: "https://drive.google.com/file/d/1GpEi-J-VaEIUDzVRLGS6piTFTuu4pAzw/view?usp=sharing",
-      gallery: [],
+      gallery: [
+        {
+          image: "/gallery/mikrotik-1.jpg",
+          caption: "Personal photo with Trainer",
+          location: "SMK Muhammadiyah Lemahabang",
+        },
+        {
+          image: "/gallery/mikrotik-2.jpg",
+          caption: "Session photo during the training",
+          location: "SMK Muhammadiyah Lemahabang",
+        },
+        {
+          image: "/gallery/mikrotik-3.jpg",
+          caption: "Session photo with the MTCNA certificate",
+          location: "SMK Muhammadiyah Lemahabang",
+        },
+      ],
     },
   ],
   projects: [
