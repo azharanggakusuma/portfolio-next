@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import { PrototypeDialog } from "@/components/prototype-dialog"; // Import komponen baru
+import { PrototypeDialog } from "@/components/prototype-dialog";
 
 interface Props {
   title: string;
@@ -125,20 +125,28 @@ export function ProjectCard({
       <CardFooter className="px-2 pb-2">
         <div className="flex flex-wrap gap-2">
           {links?.map((link, idx) => {
-            const disabled = !link.href;
+            // --- LOGIC DISABLE ---
+            // 1. Jika link kosong (!link.href) -> Disable
+            // 2. Jika project Close Source (!openSource) -> Disable SEMUA tombol
+            const isDisabled = !link.href || !openSource;
 
-            if (disabled) {
+            if (isDisabled) {
               return (
-                <Badge
-                  key={idx}
-                  className="px-2 py-1 text-[10px] opacity-40 cursor-not-allowed flex gap-2"
-                >
-                  {link.icon}
-                  {link.type}
-                </Badge>
+                <span key={idx} className="cursor-not-allowed" title="Link Disabled (Closed Source or Empty)">
+                  <Badge
+                    className="px-2 py-1 text-[10px] flex gap-2 transition-all duration-200
+                      opacity-50 pointer-events-none" 
+                  >
+                    {link.icon}
+                    {link.type}
+                  </Badge>
+                </span>
               );
             }
 
+            // --- JIKA AKTIF (Open Source & Ada Link) ---
+
+            // A. Tipe "Prototype" -> Buka Modal
             if (link.type === "Prototype") {
               return (
                 <PrototypeDialog
@@ -150,6 +158,7 @@ export function ProjectCard({
               );
             }
 
+            // B. Tipe Lainnya (Design, Source, Website) -> Buka Tab Baru
             return (
               <Link href={link.href} key={idx} target="_blank">
                 <Badge className="px-2 py-1 text-[10px] opacity-90 hover:opacity-100 transition flex gap-2">

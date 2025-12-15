@@ -822,6 +822,11 @@ export const DATA = {
           href: "https://www.figma.com/proto/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&p=f&t=GJthkXEK9Ve74fUL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
           icon: <Icons.figma className="size-3" />,
         },
+        {
+          type: "Design",
+          href: "https://www.figma.com/design/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&t=GJthkXEK9Ve74fUL-1",
+          icon: <Icons.figma className="size-3" />,
+        },
       ],
       image: "/projects/uboost.png",
       video: "",
@@ -840,6 +845,11 @@ export const DATA = {
         {
           type: "Prototype",
           href: "https://www.figma.com/proto/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&p=f&t=Ez3jYBbgHcAJHAY2-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=35%3A2117",
+          icon: <Icons.figma className="size-3" />,
+        },
+        {
+          type: "Design",
+          href: "https://www.figma.com/design/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&t=Ez3jYBbgHcAJHAY2-1",
           icon: <Icons.figma className="size-3" />,
         },
       ],
