@@ -443,7 +443,7 @@ export const DATA = {
       end: "24 May 2023",
       location: "Online",
       description:
-        ".....",
+        "Earned the Data Engineering Professional Certification from RapidMiner Academy, gaining practical knowledge in data preparation, data integration, and building data workflows for analytics and machine learning.",
       certificateUrl: "https://drive.google.com/file/d/1eaVBN7wn_QnzjBjTr2oU5UGwqDJWsYkz/view?usp=sharing",
       gallery: [],
     },
@@ -456,7 +456,7 @@ export const DATA = {
       end: "19 Jan 2023",
       location: "Online",
       description:
-        ".....",
+        "Completed the Database Design course, gaining foundational knowledge in relational database concepts, data modeling, normalization, and schema design best practices.",
       certificateUrl: "https://drive.google.com/file/d/1dak5DQfYRObb7TNDegNkKiCdOoAMO64n/view?usp=sharing",
       gallery: [],
     },
@@ -469,7 +469,7 @@ export const DATA = {
       end: "11 Jan 2023",
       location: "Online",
       description:
-        ".....",
+        "Completed the Database Programming with SQL course, developing practical skills in writing SQL queries, managing data, and performing database operations using relational databases.",
       certificateUrl: "https://drive.google.com/file/d/1DI3wJATwAzX2C6tcXH0XdHuYwYGUaqsn/view?usp=sharing",
       gallery: [],
     },
@@ -814,12 +814,12 @@ export const DATA = {
       openSource: false,
       category: "ui/ux",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Designed a high-fidelity UI prototype for UBoost, focusing on clear user flows, consistent layout structure, and responsive components. The prototype emphasizes usability and visual clarity through well-structured auto layout and interactive elements.",
       technologies: ["Figma", "Auto Layout", "Prototyping", "Whimsical"],
       links: [
         {
           type: "Prototype",
-          href: "",
+          href: "https://www.figma.com/proto/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&p=f&t=GJthkXEK9Ve74fUL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
           icon: <Icons.figma className="size-3" />,
         },
       ],
@@ -834,12 +834,12 @@ export const DATA = {
       openSource: false,
       category: "ui/ux",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Created a UI design prototype inspired by Niagahoster, focusing on user-centered design principles, clean visual hierarchy, and intuitive navigation. The project involved wireframing, user flow design, and interactive prototyping to improve the overall user experience.",
       technologies: ["Figma", "UI Kits", "Wireframing", "User Flow"],
       links: [
         {
           type: "Prototype",
-          href: "",
+          href: "https://www.figma.com/proto/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&p=f&t=Ez3jYBbgHcAJHAY2-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=35%3A2117",
           icon: <Icons.figma className="size-3" />,
         },
       ],

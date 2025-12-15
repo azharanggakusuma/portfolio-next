@@ -1,0 +1,3 @@
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/7xcYSxhg7DJWW42SmLagbI/Case-Study-Niagahoster-by-Azharangga-Kusuma?node-id=35-2117&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=35%3A2117&embed-host=share" allowfullscreen></iframe>
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/XVHfhNJNsVMPExVybbTArj/UBoost--Tugas-Technopreneurship---Copy-?node-id=13-123&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share" allowfullscreen></iframe>
