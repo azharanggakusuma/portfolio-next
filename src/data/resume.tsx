@@ -215,7 +215,12 @@ export const DATA = {
         {
           image: "/gallery/sisfotek-1.jpg",
           caption: "Research paper presentation session",
-          location: "Main Seminar Room",
+          location: "Zoom Meeting",
+        },
+        {
+          image: "/gallery/sisfotek-2.jpg",
+          caption: "Photo session with the organizing committee",
+          location: "Zoom Meeting",
         },
       ],
     },
