@@ -302,8 +302,8 @@ export default function Page() {
                 {[
                   { value: "all", label: "All" },
                   { value: "web", label: "Web" },
-                  { value: "app", label: "App" },
                   { value: "ui/ux", label: "UI/UX" },
+                  { value: "app", label: "App" },
                   { value: "ml/dl", label: "ML/DL" },
                 ].map((tab) => {
                   const active = filter === tab.value;
