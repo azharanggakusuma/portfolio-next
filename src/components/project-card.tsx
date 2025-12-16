@@ -27,7 +27,7 @@ interface Props {
     href: string;
   }[];
   openSource?: boolean;
-  category?: "web" | "app" | "ui/ux" | "ml/dl";
+  category?: "web" | "ui/ux" | "app" | "ml/dl";
   className?: string;
 }
 

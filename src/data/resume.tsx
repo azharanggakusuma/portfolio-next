@@ -16,6 +16,7 @@ import {
   SiPhp,
   SiTailwindcss,
   SiBootstrap,
+  SiFigma,
   SiPython,
   SiFlask,
   SiMysql,
@@ -53,6 +54,7 @@ export const DATA = {
     { name: "MySQL", icon: SiMysql },
     { name: "MongoDB", icon: SiMongodb },
     { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Figma", icon: SiFigma },
     { name: "Bootstrap", icon: SiBootstrap },
     { name: "Python", icon: SiPython },
     { name: "Flask", icon: SiFlask },
@@ -822,58 +824,6 @@ export const DATA = {
       image: "/projects/multimedia.png",
       video: "",
     },
-    // --- Kategori APP ---
-    {
-      title: "Lorem Ipsum",
-      href: "",
-      dates: "",
-      active: true,
-      openSource: true,
-      category: "app",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      technologies: ["React Native", "Expo", "Typescript", "Location API"],
-      links: [
-        {
-          type: "Website",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
-      video: "",
-    },
-    {
-      title: "Lorem Ipsum",
-      href: "",
-      dates: "",
-      active: true,
-      openSource: false,
-      category: "app",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      technologies: ["Flutter", "Dart", "Firebase", "Google Fit API"],
-      links: [
-        {
-          type: "Website",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
-      video: "",
-    },
-
     // --- Kategori UI/UX ---
     {
       title: "UI Design Prototype UBoost",
@@ -925,6 +875,34 @@ export const DATA = {
       image: "/projects/niagahoster.png",
       video: "",
     },
+
+    // --- Kategori APP ---
+    {
+      title: "Lorem Ipsum",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "app",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      technologies: ["React Native", "Expo", "Typescript", "Location API"],
+      links: [
+        {
+          type: "Website",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
+      video: "",
+    },
+
     // --- Kategori ML/DL ---
     {
       title: "Lorem Ipsum",
