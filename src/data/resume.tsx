@@ -876,7 +876,7 @@ export const DATA = {
       video: "",
     },
 
-    // --- Kategori APP ---
+    /* // --- Kategori APP ---
     {
       title: "Lorem Ipsum",
       href: "",
@@ -953,6 +953,6 @@ export const DATA = {
       ],
       image: "https://placehold.co/600x400?text=Lorem+Ipsum",
       video: "",
-    },
+    }, */
   ],
 } as const;
