@@ -32,13 +32,13 @@ export interface GalleryItem {
 export const DATA = {
   name: "Azharangga Kusuma",
   initials: "AK",
-  url: "https://azharanggakusuma.dev",
+  url: "https://azharangga.xyz",
   location: "Cirebon, Indonesia",
   locationLink: "",
   description:
-    "Software Developer, specializing in Web and Mobile. Passionate about building impactful solutions. Always exploring new technologies.",
+    "Fullstack Developer specializing in building modern, scalable, and user-focused web applications. Passionate about creating impactful solutions and continuously exploring new technologies.",
   summary:
-    "I’m a Software Developer with a strong interest in building practical, user-focused software solutions. With a background in [Computer Science from STMIK IKMI Cirebon](/#education), I’ve developed my skills through hands-on [internship experience and personal/open-source projects](/#experience). Outside of development, I enjoy contributing to the tech community by sharing knowledge and helping others grow.",
+    "I’m a Fullstack Developer with a strong interest in building practical, user-focused web applications. With a background in [Computer Science from STMIK IKMI Cirebon](/#education), I’ve developed my skills through hands-on [internship experience and personal/open-source projects](/#experience). Outside of development, I enjoy contributing to the tech community by sharing knowledge and helping others grow.",
   avatarUrl: "/profile-circle.png",
   skills: [
     { name: "JavaScript", icon: SiJavascript },
@@ -90,7 +90,7 @@ export const DATA = {
       },
       Hashnode: {
         name: "Hashnode",
-        url: "https://blog.azharanggakusuma.dev",
+        url: "https://blog.azharangga.xyz",
         icon: Icons.hashnode,
         contact: false,
         navbar: false,
