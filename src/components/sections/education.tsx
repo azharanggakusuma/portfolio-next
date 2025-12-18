@@ -1,8 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { EducationCard } from "@/components/education-card";
 import { DATA } from "@/data/resume";
-
-const BLUR_FADE_DELAY = 0.04;
+import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function EducationSection() {
   const EDUCATION_DELAY = BLUR_FADE_DELAY * 9;

@@ -1,8 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { ResumeCard } from "@/components/resume-card";
 import { DATA } from "@/data/resume";
-
-const BLUR_FADE_DELAY = 0.04;
+import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function ExperienceSection() {
   const WORK_DELAY = BLUR_FADE_DELAY * 7;

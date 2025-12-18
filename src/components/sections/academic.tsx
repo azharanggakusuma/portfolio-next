@@ -1,22 +1,12 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { GroupedAcademicCard } from "@/components/grouped-academic-card";
 import { DATA } from "@/data/resume";
-
-// Definisi Type (sebaiknya dipindah ke file types.ts global, tapi di sini juga oke)
-type AcademicActivityItem = (typeof DATA.academicActivities)[number];
-interface GroupedActivity {
-  school: string;
-  logoUrl: string;
-  href: string;
-  items: AcademicActivityItem[];
-}
-
-const BLUR_FADE_DELAY = 0.04;
+import { BLUR_FADE_DELAY } from "@/lib/constants";
+import { GroupedActivity } from "@/types";
 
 export function AcademicSection() {
   const ACADEMIC_DELAY = BLUR_FADE_DELAY * 11;
 
-  // Logic Grouping
   const groupedAcademicActivities = DATA.academicActivities.reduce(
     (acc: GroupedActivity[], item) => {
       const existingGroup = acc.find((group) => group.school === item.school);

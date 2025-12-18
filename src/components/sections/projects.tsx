@@ -4,8 +4,7 @@ import { useState } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { DATA } from "@/data/resume";
-
-const BLUR_FADE_DELAY = 0.04;
+import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState<"all" | "web" | "app" | "ui/ux" | "ml/dl">("all");
@@ -37,7 +36,6 @@ export function ProjectsSection() {
           </div>
         </BlurFade>
 
-        {/* Filter Buttons */}
         <div className="flex justify-center">
           <BlurFade delay={PROJECTS_DELAY + 0.05}>
             <div className="flex gap-1 bg-muted/40 p-1 rounded-full border">
@@ -68,7 +66,6 @@ export function ProjectsSection() {
           </BlurFade>
         </div>
 
-        {/* Project Grid */}
         <div className="min-h-[200px] flex flex-col items-center">
           {filteredProjects.length === 0 ? (
             <div className="mt-12 flex flex-col items-center text-center text-muted-foreground">
