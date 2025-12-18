@@ -6,7 +6,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { EducationCard } from "@/components/education-card";
-import { AcademicCard } from "@/components/academic-card"; // Import komponen AcademicCard
+import { GroupedAcademicCard } from "@/components/grouped-academic-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -28,7 +28,6 @@ export default function Page() {
     "all" | "web" | "app" | "ui/ux" | "ml/dl"
   >("all");
 
-  // Logika Filter
   const filteredProjects = DATA.projects.filter((project) => {
     if (!project.active) return false;
     if (filter === "all") return true;
@@ -43,6 +42,36 @@ export default function Page() {
   const ACADEMIC_DELAY = BLUR_FADE_DELAY * 11;
   const PROJECTS_DELAY = BLUR_FADE_DELAY * 13;
   const CONTACT_DELAY = BLUR_FADE_DELAY * 15;
+
+  // --- LOGIC GROUPING ACADEMIC ACTIVITIES ---
+  // 1. Ambil tipe satu item dari array
+  type AcademicActivityItem = (typeof DATA.academicActivities)[number];
+
+  // 2. Definisikan bentuk Group yang kita inginkan
+  interface GroupedActivity {
+    school: string;
+    logoUrl: string;
+    href: string;
+    items: AcademicActivityItem[];
+  }
+
+  const groupedAcademicActivities = DATA.academicActivities.reduce(
+    (acc: GroupedActivity[], item) => {
+      const existingGroup = acc.find((group) => group.school === item.school);
+      if (existingGroup) {
+        existingGroup.items.push(item);
+      } else {
+        acc.push({
+          school: item.school,
+          logoUrl: item.logoUrl,
+          href: item.href,
+          items: [item],
+        });
+      }
+      return acc;
+    },
+    []
+  );
 
   return (
     <main className="flex flex-col min-h-[100dvh]">
@@ -63,7 +92,6 @@ export default function Page() {
                 </Markdown>
               </BlurFade>
 
-              {/* TOMBOL ACTION */}
               <BlurFade delay={HERO_DELAY + 0.1}>
                 <div className="flex gap-2 justify-center md:justify-start mt-4">
                   <Link
@@ -179,29 +207,23 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- ACADEMIC ACTIVITIES SECTION --- */}
+      {/* --- ACADEMIC ACTIVITIES SECTION (Grouped) --- */}
       <section id="academic-activities" className="pt-6">
-        <div className="flex min-h-0 flex-col gap-y-3">
+        <div className="flex min-h-0 flex-col gap-y-4">
           <BlurFade delay={ACADEMIC_DELAY}>
             <h2 className="text-xl font-bold">Academic Activities</h2>
           </BlurFade>
 
-          {DATA.academicActivities.map((item, id) => (
+          {groupedAcademicActivities.map((group, id) => (
             <BlurFade
-              key={item.school + item.degree + id}
+              key={group.school + id}
               delay={ACADEMIC_DELAY + id * 0.05}
             >
-              <AcademicCard
-                logoUrl={item.logoUrl}
-                altText={item.school}
-                title={item.school}
-                subtitle={item.degree}
-                href={item.href}
-                period={`${item.start} - ${item.end}`}
-                description={item.description}
-                location={item.location}
-                certificateUrl={item.certificateUrl}
-                gallery={item.gallery}
+              <GroupedAcademicCard
+                school={group.school}
+                logoUrl={group.logoUrl}
+                href={group.href}
+                items={group.items}
               />
             </BlurFade>
           ))}
@@ -228,7 +250,6 @@ export default function Page() {
             </div>
           </BlurFade>
 
-          {/* Filter Tabs */}
           <div className="flex justify-center">
             <BlurFade delay={PROJECTS_DELAY + 0.05}>
               <div className="flex gap-1 bg-muted/40 p-1 rounded-full border">
@@ -263,7 +284,6 @@ export default function Page() {
             </BlurFade>
           </div>
 
-          {/* Project Grid */}
           <div className="min-h-[200px] flex flex-col items-center">
             {filteredProjects.length === 0 ? (
               <div className="mt-12 flex flex-col items-center text-center text-muted-foreground">
