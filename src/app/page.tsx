@@ -6,7 +6,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { EducationCard } from "@/components/education-card";
-import { GroupedAcademicCard } from "@/components/grouped-academic-card";
+import { AcademicCard } from "@/components/academic-card"; // Import komponen AcademicCard
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -43,56 +43,6 @@ export default function Page() {
   const ACADEMIC_DELAY = BLUR_FADE_DELAY * 11;
   const PROJECTS_DELAY = BLUR_FADE_DELAY * 13;
   const CONTACT_DELAY = BLUR_FADE_DELAY * 15;
-
-  // --- LOGIC PENGELOMPOKAN DATA (Grouping) ---
-
-  // 1. Grouping untuk Trainings
-  const groupedTrainings = DATA.trainings.reduce(
-    (acc, item) => {
-      const existingGroup = acc.find((group) => group.school === item.school);
-      if (existingGroup) {
-        existingGroup.items.push(item);
-      } else {
-        acc.push({
-          school: item.school,
-          logoUrl: item.logoUrl,
-          href: item.href,
-          items: [item],
-        });
-      }
-      return acc;
-    },
-    [] as Array<{
-      school: string;
-      logoUrl: string;
-      href: string;
-      items: (typeof DATA.trainings)[number][];
-    }>
-  );
-
-  // 2. Grouping untuk Academic Experience
-  const groupedAcademicExperience = DATA.academicExperience.reduce(
-    (acc, item) => {
-      const existingGroup = acc.find((group) => group.school === item.school);
-      if (existingGroup) {
-        existingGroup.items.push(item);
-      } else {
-        acc.push({
-          school: item.school,
-          logoUrl: item.logoUrl,
-          href: item.href,
-          items: [item],
-        });
-      }
-      return acc;
-    },
-    [] as Array<{
-      school: string;
-      logoUrl: string;
-      href: string;
-      items: (typeof DATA.academicExperience)[number][];
-    }>
-  );
 
   return (
     <main className="flex flex-col min-h-[100dvh]">
@@ -229,46 +179,29 @@ export default function Page() {
         </div>
       </section>
 
-      {/* --- ACADEMIC EXPERIENCE SECTION --- */}
-      <section id="academic-experience" className="pt-6">
-        <div className="flex min-h-0 flex-col gap-y-4">
+      {/* --- ACADEMIC ACTIVITIES SECTION --- */}
+      <section id="academic-activities" className="pt-6">
+        <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={ACADEMIC_DELAY}>
-            <h2 className="text-xl font-bold">Academic Experience</h2>
+            <h2 className="text-xl font-bold">Academic Activities</h2>
           </BlurFade>
 
-          {groupedAcademicExperience.map((group, id) => (
+          {DATA.academicActivities.map((item, id) => (
             <BlurFade
-              key={group.school + id}
+              key={item.school + item.degree + id}
               delay={ACADEMIC_DELAY + id * 0.05}
             >
-              <GroupedAcademicCard
-                school={group.school}
-                logoUrl={group.logoUrl}
-                href={group.href}
-                items={group.items}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section>
-
-      {/* --- TRAINING & CERTIFICATES SECTION --- */}
-      <section id="certifications" className="pt-6">
-        <div className="flex min-h-0 flex-col gap-y-4">
-          <BlurFade delay={BLUR_FADE_DELAY * 12}>
-            <h2 className="text-xl font-bold">Training & Certifications</h2>
-          </BlurFade>
-
-          {groupedTrainings.map((group, id) => (
-            <BlurFade
-              key={group.school + id}
-              delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-            >
-              <GroupedAcademicCard
-                school={group.school}
-                logoUrl={group.logoUrl}
-                href={group.href}
-                items={group.items}
+              <AcademicCard
+                logoUrl={item.logoUrl}
+                altText={item.school}
+                title={item.school}
+                subtitle={item.degree}
+                href={item.href}
+                period={`${item.start} - ${item.end}`}
+                description={item.description}
+                location={item.location}
+                certificateUrl={item.certificateUrl}
+                gallery={item.gallery}
               />
             </BlurFade>
           ))}

@@ -201,7 +201,7 @@ export const DATA = {
       end: "2020",
     },
   ],
-  academicExperience: [
+  academicActivities: [
     {
       school: "Ikatan Ahli informatika Indonesia Nusantara (IAII)",
       href: "https://sisfotek.org",
@@ -253,22 +253,6 @@ export const DATA = {
         },
       ],
     },
-    /*{
-      school: "Sejutacita Indonesia",
-      href: "https://sejutacita.id/fmbpi",
-      degree: "Indonesian New Student & Youth Festival 2021",
-      icon: false,
-      logoUrl: "/academic/sejutacita.jpg",
-      start: "27 Aug 2021",
-      end: "29 Aug 2021",
-      location: "Online",
-      description:
-        "Participated in the Indonesian New Student & Youth Festival 2021 (FMBPI), a free online talk show organized by Sejutacita Indonesia. The event aimed to provide insights and inspiration for new university students and high school students across Indonesia through a series of engaging sessions led by expert speakers.",
-      certificateUrl: "",
-      gallery: [],
-    },*/
-  ],
-  trainings: [
     {
       school: "SMKDEV",
       href: "https://www.smk.dev",
