@@ -8,18 +8,33 @@ import { EducationSection } from "@/components/sections/education";
 import { AcademicSection } from "@/components/sections/academic";
 import { ProjectsSection } from "@/components/sections/projects";
 import { ContactSection } from "@/components/sections/contact";
+import Navbar from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-[100dvh]">
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <EducationSection />
-      <AcademicSection />
-      <ProjectsSection />
-      <ContactSection />
-    </main>
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <TooltipProvider delayDuration={0}>
+        <div
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased max-w-2xl xl:max-w-3xl mx-auto py-12 sm:py-24 px-6"
+          )}
+        >
+          <main className="flex flex-col min-h-[100dvh]">
+            <HeroSection />
+            <AboutSection />
+            <SkillsSection />
+            <ExperienceSection />
+            <EducationSection />
+            <AcademicSection />
+            <ProjectsSection />
+            <ContactSection />
+          </main>
+          <Navbar />
+        </div>
+      </TooltipProvider>
+    </ThemeProvider>
   );
 }
