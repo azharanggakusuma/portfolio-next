@@ -236,7 +236,7 @@ export default function LoginPage() {
         </div>
 
         <p className="mt-4 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Azharangga Kusuma
+          © {new Date().getFullYear()} - Azharangga Kusuma
         </p>
       </div>
     </div>
