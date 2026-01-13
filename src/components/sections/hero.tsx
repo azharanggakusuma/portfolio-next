@@ -3,7 +3,8 @@ import { Mail, FileText } from "lucide-react";
 import Markdown from "react-markdown";
 import BlurFade from "@/components/magicui/blur-fade";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants, Button } from "@/components/ui/button";
+import { CertificateModal } from "@/components/certificate-modal";
 import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
@@ -36,17 +37,19 @@ export function HeroSection() {
                   <Mail className="size-4" />
                   Contact Me
                 </Link>
-                <Link
-                  href="/resume.pdf"
-                  target="_blank"
-                  className={cn(
-                    buttonVariants({ variant: "outline" }),
-                    "w-full sm:w-auto flex items-center gap-2"
-                  )}
-                >
-                  <FileText className="size-4" />
-                  Download CV
-                </Link>
+                <CertificateModal
+                  trigger={
+                    <Button
+                      variant="outline"
+                      className="w-full sm:w-auto flex items-center gap-2"
+                    >
+                      <FileText className="size-4" />
+                      Download CV
+                    </Button>
+                  }
+                  href={DATA.resumeUrl}
+                  alt="Resume"
+                />
               </div>
             </BlurFade>
           </div>

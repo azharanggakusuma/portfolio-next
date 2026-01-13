@@ -37,7 +37,8 @@ export interface GalleryItem {
 export const DATA = {
   name: "Azharangga Kusuma",
   initials: "AK",
-  url: "https://azharangga.xyz",
+  url: "https://azharangga.site",
+  resumeUrl: "https://drive.google.com/file/d/1zOLX4greHhXuTD3iBf9MuQLeFVzltZGI/view?usp=sharing", 
   location: "Cirebon, Indonesia",
   locationLink: "",
   description:
@@ -886,84 +887,5 @@ export const DATA = {
       image: "/projects/niagahoster.png",
       video: "",
     },
-
-    /* // --- Kategori APP ---
-    {
-      title: "Lorem Ipsum",
-      href: "",
-      dates: "",
-      active: true,
-      openSource: true,
-      category: "app",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      technologies: ["React Native", "Expo", "Typescript", "Location API"],
-      links: [
-        {
-          type: "Website",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
-      video: "",
-    },
-
-    // --- Kategori ML/DL ---
-    {
-      title: "Lorem Ipsum",
-      href: "",
-      dates: "",
-      active: true,
-      openSource: true,
-      category: "ml/dl",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      technologies: ["Python", "TensorFlow", "Keras", "Google Colab"],
-      links: [
-        {
-          type: "Website",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
-      video: "",
-    },
-    {
-      title: "Lorem Ipsum",
-      href: "",
-      dates: "",
-      active: true,
-      openSource: false,
-      category: "ml/dl",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      technologies: ["Python", "NLTK", "Scikit-Learn", "Streamlit"],
-      links: [
-        {
-          type: "Website",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "https://placehold.co/600x400?text=Lorem+Ipsum",
-      video: "",
-    }, */
   ],
 } as const;
