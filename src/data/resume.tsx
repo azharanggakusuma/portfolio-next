@@ -21,6 +21,8 @@ import {
   SiFlask,
   SiMysql,
   SiMongodb,
+  SiPostgresql,
+  SiSupabase,
   SiGit,
   SiNpm,
   SiPostman,
@@ -52,13 +54,13 @@ export const DATA = {
     { name: "Express.js", icon: SiExpress },
     { name: "PHP", icon: SiPhp },
     { name: "MySQL", icon: SiMysql },
-    { name: "MongoDB", icon: SiMongodb },
+    { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "Supabase", icon: SiSupabase },
     { name: "Tailwind CSS", icon: SiTailwindcss },
-    { name: "Figma", icon: SiFigma },
     { name: "Bootstrap", icon: SiBootstrap },
-    { name: "Python", icon: SiPython },
-    { name: "Flask", icon: SiFlask },
+    { name: "Figma", icon: SiFigma },
     { name: "React Native", icon: SiReact },
+    { name: "Python", icon: SiPython },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -293,6 +295,30 @@ export const DATA = {
     {
       school: "Digital Talent Scholarship",
       href: "https://digitalent.komdigi.go.id",
+      degree: "VSGA - Junior Web Developer",
+      logoUrl: "/academic/digitalent.png",
+      start: "Jul 2024",
+      end: "Aug 2024",
+      location: "Online",
+      description:
+        "Completed the VSGA training program for Junior Web Developers based on SKKNI standards. Acquired competencies in building and managing web applications using HTML, CSS, and PHP, including database management with MySQL and implementation of responsive user interfaces.",
+      certificateUrl: "https://drive.google.com/file/d/1JinEBPhcE3jUdOGTYzfSdzXc5gP06XQv/view?usp=sharing",
+      gallery: [
+        {
+          image: "/gallery/jwd-1.jpg",
+          caption: "Assessment Process",
+          location: "Zoom Meeting",
+        },
+        {
+          image: "/gallery/jwd-2.jpg",
+          caption: "Assessment Result Announcement",
+          location: "Zoom Meeting",
+        },
+      ],
+    },
+    {
+      school: "Digital Talent Scholarship",
+      href: "https://digitalent.komdigi.go.id",
       degree: "VSGA - Junior Network Administrator",
       logoUrl: "/academic/digitalent.png",
       start: "Sep 2023",
@@ -300,7 +326,7 @@ export const DATA = {
       location: "Kuningan, West Java, Indonesia",
       description:
         "Completed the Vocational School Graduate Academy (VSGA) training based on the Indonesian National Work Competency Standards (SKKNI). Gained practical skills in configuring network devices, designing IP addressing schemes, setting up wireless networks, and managing routing and switching systems.",
-      certificateUrl: "https://drive.google.com/file/d/1G9PUCoHE7G5I6qo5SYBHGKgcwR7-GHOK/view?usp=sharing",
+      certificateUrl: "https://drive.google.com/file/d/1_ZMljdqoqjMPhc7Eq89X4PTxvq27b2DP/view?usp=sharing",
       gallery: [
         {
           image: "/gallery/jna-1.jpg",
@@ -316,30 +342,6 @@ export const DATA = {
           image: "/gallery/jna-3.jpg",
           caption: "Group Photo Session",
           location: "UNIKU Campus 2, Faculty of Computer Science",
-        },
-      ],
-    },
-    {
-      school: "Digital Talent Scholarship",
-      href: "https://digitalent.komdigi.go.id",
-      degree: "VSGA - Junior Web Developer",
-      logoUrl: "/academic/digitalent.png",
-      start: "Jun 2023",
-      end: "Jul 2023",
-      location: "Online",
-      description:
-        "Completed the VSGA training program for Junior Web Developers based on SKKNI standards. Acquired competencies in building and managing web applications using HTML, CSS, and PHP, including database management with MySQL and implementation of responsive user interfaces.",
-      certificateUrl: "https://drive.google.com/file/d/1ylMMcHt1R3M5cm2-1Go-hZsanNgWvff8/view?usp=sharing",
-      gallery: [
-        {
-          image: "/gallery/jwd-1.jpg",
-          caption: "Assessment Process",
-          location: "Zoom Meeting",
-        },
-        {
-          image: "/gallery/jwd-2.jpg",
-          caption: "Assessment Result Announcement",
-          location: "Zoom Meeting",
         },
       ],
     },
