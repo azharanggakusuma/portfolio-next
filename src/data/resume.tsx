@@ -243,7 +243,7 @@ export const DATA = {
       gallery: [
         {
           image: "/gallery/pmm-1.jpg",
-          caption: "Cirebon local culture presentation",
+          caption: "Welcome Ceremony for Student Exchange Program Batch 4",
           location: "Undiksha Campus Hall",
         },
         {
@@ -570,6 +570,31 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "SIAKAD IKMI",
+      href: "",
+      dates: "",
+      active: true,
+      openSource: true,
+      category: "web",
+      description:
+        "A comprehensive academic information system designed to streamline and manage various academic processes at STMIK IKMI Cirebon, including course management, grading, and reporting.",
+      technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Cloudflare Turnstile"],
+      links: [
+        {
+          type: "Website",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/projects/siakad-ikmi.png",
+      video: "",
+    },
+    {
       title: "DataDikti",
       href: "https://datadikti.vercel.app",
       dates: "",
@@ -578,7 +603,7 @@ export const DATA = {
       category: "web",
       description:
         "A web platform that provides access to academic data from PDDikti, enabling users to search and view information on students, lecturers, study programs, and higher education institutions. The system also supports detailed lookup for individual student and lecturer profiles.",
-      technologies: ["React.js", "Next.js", "Leaflet.js", "Tailwind CSS"],
+      technologies: ["React.js", "Next.js", "TypeScript", "Leaflet.js", "Tailwind CSS"],
       links: [
         {
           type: "Website",
